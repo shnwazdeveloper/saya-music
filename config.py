@@ -85,8 +85,8 @@ START_VIDS = [
     "https://litter.catbox.moe/ge4ds72i538f45q2.mp4",
 ]
 STICKERS = [
-    "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
-    "CAACAgUAAx0Cd6nKUAACATJl_rsEJOsaaPSYGhU7bo7iEwL8AAPMDgACu2PYV8Vb8aT4_HUPHgQ",
+    "CAACAgUAAxkBAAEDt9Np-fu9lBKL7octL4Pd5XkcyCj-qQACzhsAAuwSIFQNutRA9ZkJSjsE",
+    "CAACAgUAAxkBAAEDt9dp-fv1sv9-j3okIltpNFS9tzZgRAACJhcAAtU0IFSHj_3D1IPNozsE",
 ]
 HELP_IMG_URL = "https://litter.catbox.moe/ejtf4k5gi1nav49v.jpg"
 PING_VID_URL = "https://litter.catbox.moe/ejtf4k5gi1nav49v.jpg"
