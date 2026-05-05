@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://github.com/shnwazdeveloper/saya-music">
-    <img src="https://raw.githubusercontent.com/shnwazdeveloper/saya-music/Master/SayaMusic/assets/saya/welcome.png" width="720" alt="Saya Music Banner" />
+    <img src="https://raw.githubusercontent.com/shnwazdeveloper/saya-music/Master/SayaMusic/assets/saya/saya.jpg" width="720" alt="Saya Music Banner" />
   </a>
 </p>
 
@@ -131,4 +131,3 @@ docker run -d --name saya-music --env-file .env --restart unless-stopped saya-mu
 ## License
 
 MIT License
-
