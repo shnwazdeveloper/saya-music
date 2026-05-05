@@ -26,12 +26,12 @@ async def init():
         LOGGER(__name__).error("ᴀssɪsᴛᴀɴᴛ sᴇssɪᴏɴ ɴᴏᴛ ғɪʟʟᴇᴅ, ᴘʟᴇᴀsᴇ ғɪʟʟ ᴀ ᴘʏʀᴏɢʀᴀᴍ sᴇssɪᴏɴ...")
         exit()
 
-    # ✅ Try to fetch cookies at startup
+    #  Try to fetch cookies at startup
     try:
         await fetch_and_store_cookies()
-        LOGGER("SayaMusic").info("ʏᴏᴜᴛᴜʙᴇ ᴄᴏᴏᴋɪᴇs ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ✅")
+        LOGGER("SayaMusic").info("ʏᴏᴜᴛᴜʙᴇ ᴄᴏᴏᴋɪᴇs ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ")
     except Exception as e:
-        LOGGER("SayaMusic").warning(f"⚠️ᴄᴏᴏᴋɪᴇ ᴇʀʀᴏʀ: {e}")
+        LOGGER("SayaMusic").warning(f"ᴄᴏᴏᴋɪᴇ ᴇʀʀᴏʀ: {e}")
 
 
     await sudo()

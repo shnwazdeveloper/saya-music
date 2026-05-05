@@ -311,7 +311,7 @@ async def kickme_cmd(client, message: Message):
 
     target = await _get_member_safe(client, message.chat.id, message.from_user.id)
     if target and _is_admin_status(target.status):
-        return await message.reply_text("Nice try, boss 😅 I can’t kick admins or the owner.")
+        return await message.reply_text("Nice try, boss  I can’t kick admins or the owner.")
 
     bot_mem = await _get_bot_member(client, message.chat.id)
     if not bot_mem or not getattr(bot_mem, "can_restrict_members", False):
@@ -321,7 +321,7 @@ async def kickme_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, message.from_user.id)
         await asyncio.sleep(3)
         await client.unban_chat_member(message.chat.id, message.from_user.id)
-        await message.reply_text("Kicked so hard, your ancestors felt it. 👟💥")
+        await message.reply_text("Kicked so hard, your ancestors felt it. ")
     except ChatAdminRequired:
         await message.reply_text("I need ban permissions.")
     except UserAdminInvalid:

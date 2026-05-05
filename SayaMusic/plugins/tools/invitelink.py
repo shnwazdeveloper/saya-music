@@ -12,10 +12,10 @@ async def give_link_command(client: Client, message: Message):
     try:
         link = await app.export_chat_invite_link(message.chat.id)
         await message.reply_text(
-            f"🔗 **ɪɴᴠɪᴛᴇ ʟɪɴᴋ ғᴏʀ** `{message.chat.title}`:\n{link}"
+            f" **ɪɴᴠɪᴛᴇ ʟɪɴᴋ ғᴏʀ** `{message.chat.title}`:\n{link}"
         )
     except Exception as e:
-        await message.reply_text(f"❌ ᴇʀʀᴏʀ ɢᴇɴᴇʀᴀᴛɪɴɢ ʟɪɴᴋ:\n`{e}`")
+        await message.reply_text(f" ᴇʀʀᴏʀ ɢᴇɴᴇʀᴀᴛɪɴɢ ʟɪɴᴋ:\n`{e}`")
 
 
 @app.on_message(filters.command(["link", "invitelink"], prefixes=["/", "!", ".", "#", "?"]) & SUDOERS)
@@ -29,12 +29,12 @@ async def link_command_handler(client: Client, message: Message):
     try:
         chat = await client.get_chat(int(group_id))
         if not chat:
-            return await message.reply("⚠️ **ᴄᴏᴜʟᴅ ɴᴏᴛ ғᴇᴛᴄʜ ɢʀᴏᴜᴘ ɪɴғᴏ.**")
+            return await message.reply(" **ᴄᴏᴜʟᴅ ɴᴏᴛ ғᴇᴛᴄʜ ɢʀᴏᴜᴘ ɪɴғᴏ.**")
 
         try:
             invite_link = await client.export_chat_invite_link(chat.id)
         except (ChannelInvalid, ChannelPrivate):
-            return await message.reply("🚫 **ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀᴄᴄᴇss ᴛᴏ ᴛʜɪs ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ.**")
+            return await message.reply(" **ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀᴄᴄᴇss ᴛᴏ ᴛʜɪs ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ.**")
         except FloodWait as e:
             return await message.reply(f"⏳ ʀᴀᴛᴇ ʟɪᴍɪᴛ: ᴡᴀɪᴛ `{e.value}` seconds.")
 
@@ -62,15 +62,15 @@ async def link_command_handler(client: Client, message: Message):
             chat_id=message.chat.id,
             document=file_name,
             caption=(
-                f"📂 **ɢʀᴏᴜᴘ ɪɴғᴏ ꜰᴏʀ** `{chat.title}`\n"
-                f"📌 **sᴄʀᴀᴘᴇᴅ ʙʏ:** @{app.username}"
+                f" **ɢʀᴏᴜᴘ ɪɴғᴏ ꜰᴏʀ** `{chat.title}`\n"
+                f" **sᴄʀᴀᴘᴇᴅ ʙʏ:** @{app.username}"
             ),
         )
 
     except (ValueError):
-        await message.reply("❌ **ɪɴᴠᴀʟɪᴅ ɢʀᴏᴜᴘ ɪᴅ. ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴠᴀʟɪᴅ ɢʀᴏᴜᴘ ɪᴅ.**")
+        await message.reply(" **ɪɴᴠᴀʟɪᴅ ɢʀᴏᴜᴘ ɪᴅ. ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴠᴀʟɪᴅ ɢʀᴏᴜᴘ ɪᴅ.**")
     except Exception as e:
-        await message.reply_text(f"❌ ᴇʀʀᴏʀ:\n`{str(e)}`")
+        await message.reply_text(f" ᴇʀʀᴏʀ:\n`{str(e)}`")
 
     finally:
         if os.path.exists(file_name):

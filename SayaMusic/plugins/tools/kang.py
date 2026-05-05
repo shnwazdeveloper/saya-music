@@ -77,7 +77,7 @@ async def _prepare_media(message, tmp_dir: str, notify) -> Tuple[str, str, bool,
     r = message.reply_to_message
 
     if r.sticker:
-        await notify.edit("➣ ᴘʀᴏᴄᴇssɪɴɢ sᴛɪᴄᴋᴇʀ…")
+        await notify.edit(" ᴘʀᴏᴄᴇssɪɴɢ sᴛɪᴄᴋᴇʀ…")
         s = r.sticker
         if s.is_animated:
             return "sticker", await r.download(os.path.join(tmp_dir, "sticker.tgs")), True, False
@@ -86,7 +86,7 @@ async def _prepare_media(message, tmp_dir: str, notify) -> Tuple[str, str, bool,
         return "sticker", await r.download(os.path.join(tmp_dir, "sticker.png")), False, False
 
     if r.photo or (r.document and r.document.mime_type and r.document.mime_type.startswith("image/")):
-        await notify.edit("➣ ᴄᴏɴᴠᴇʀᴛɪɴɢ ɪᴍᴀɢᴇ…")
+        await notify.edit(" ᴄᴏɴᴠᴇʀᴛɪɴɢ ɪᴍᴀɢᴇ…")
         p = await r.download(os.path.join(tmp_dir, "image"))
         p = await resize_file_to_sticker_size(p)
         return "image", p, False, False
@@ -98,7 +98,7 @@ async def _prepare_media(message, tmp_dir: str, notify) -> Tuple[str, str, bool,
             (r.document.file_name and r.document.file_name.endswith(".gif"))
         ))
     ):
-        await notify.edit("➣ ᴘʀᴏᴄᴇssɪɴɢ ɢɪꜰ/ᴠɪᴅᴇᴏ…")
+        await notify.edit(" ᴘʀᴏᴄᴇssɪɴɢ ɢɪꜰ/ᴠɪᴅᴇᴏ…")
         raw_v = await r.download(os.path.join(tmp_dir, "raw.mp4"))
         out_v = os.path.join(tmp_dir, "sticker.webm")
         cmd = [
@@ -119,7 +119,7 @@ async def _prepare_media(message, tmp_dir: str, notify) -> Tuple[str, str, bool,
 
 @app.on_message(filters.command("kang") & filters.reply)
 async def kang(client, message):
-    notify = await message.reply_text("➣ ᴘʀᴏᴄᴇssɪɴɢ…")
+    notify = await message.reply_text(" ᴘʀᴏᴄᴇssɪɴɢ…")
     tmp_dir = tempfile.mkdtemp()
 
     try:
@@ -169,7 +169,7 @@ async def kang(client, message):
         )
         doc = upload.document
 
-        emoji = message.command[1] if len(message.command) > 1 else "🤔"
+        emoji = message.command[1] if len(message.command) > 1 else ""
 
         try:
             await client.invoke(
@@ -215,7 +215,7 @@ async def kang(client, message):
         kind_lbl = "ᴀɴɪᴍᴀᴛᴇᴅ" if is_anim else "ᴠɪᴅᴇᴏ" if is_vid else "sᴛᴀᴛɪᴄ"
 
         await notify.edit(
-            f"➣ {'ᴄʀᴇᴀᴛᴇᴅ' if created else 'ᴀᴅᴅᴇᴅ ᴛᴏ'} ʏᴏᴜʀ {kind_lbl} ᴘᴀᴄᴋ!\n"
+            f" {'ᴄʀᴇᴀᴛᴇᴅ' if created else 'ᴀᴅᴅᴇᴅ ᴛᴏ'} ʏᴏᴜʀ {kind_lbl} ᴘᴀᴄᴋ!\n"
             f"ᴘᴀᴄᴋ: {title}\n"
             f"ᴄᴏᴜɴᴛ: {count}\n"
             f"ᴇᴍᴏᴊɪ: {emoji}",

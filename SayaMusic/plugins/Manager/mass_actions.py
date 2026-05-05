@@ -44,11 +44,11 @@ async def ask_mass_confirm(client: Client, message: Message):
     if not ok:
         owner_m = mention(owner.id, owner.first_name) if owner else "the owner"
         return await message.reply_text(
-            f"❌ Only {owner_m} may run “{cmd}”."
+            f" Only {owner_m} may run “{cmd}”."
         )
 
     await message.reply_text(
-        f"⚠️ {message.from_user.mention}, confirm `{cmd}` for this group?",
+        f" {message.from_user.mention}, confirm `{cmd}` for this group?",
         reply_markup=_confirmation_keyboard(cmd)
     )
 
@@ -65,7 +65,7 @@ async def handle_mass_confirm(client: Client, callback: CallbackQuery):
         return await callback.answer("Only the group owner can confirm.", show_alert=True)
 
     if answer == "no":
-        return await callback.message.edit(f"❌ `{cmd}` canceled.")
+        return await callback.message.edit(f" `{cmd}` canceled.")
 
     bot_member = await client.get_chat_member(chat_id, client.me.id)
     priv = bot_member.privileges
@@ -78,7 +78,7 @@ async def handle_mass_confirm(client: Client, callback: CallbackQuery):
         "unpinall":  priv.can_pin_messages,
     }
     if not needed.get(cmd, False):
-        return await callback.message.edit("❌ I lack necessary permissions.")
+        return await callback.message.edit(" I lack necessary permissions.")
 
     await callback.message.edit(f"⏳ `{cmd}` in progress…")
 
@@ -96,9 +96,9 @@ async def handle_mass_confirm(client: Client, callback: CallbackQuery):
         elif cmd == "unpinall":
             await _do_unpinall(client, chat_id)
 
-        await callback.message.edit(f"✅ `{cmd}` completed.")
+        await callback.message.edit(f" `{cmd}` completed.")
     except Exception as e:
-        await callback.message.edit(f"❌ Error during `{cmd}`:\n{e}")
+        await callback.message.edit(f" Error during `{cmd}`:\n{e}")
 
 
 # ─────────────────────────────────────────────────────

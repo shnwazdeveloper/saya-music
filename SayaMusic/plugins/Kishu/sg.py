@@ -13,10 +13,10 @@ from SayaMusic.core.userbot import assistants
 @app.on_message(filters.command("sg"))
 async def sg(client: Client, message: Message):
     if not assistants or 1 not in assistants:
-        return await message.reply("❌ No active userbot assistant found!")
+        return await message.reply(" No active userbot assistant found!")
 
     ubot = us.one
-    status_msg = await message.reply("👀")
+    status_msg = await message.reply("")
 
     try:
         if message.reply_to_message:
@@ -24,7 +24,7 @@ async def sg(client: Client, message: Message):
         else:
             parts = message.text.split()
             if len(parts) < 2:
-                return await status_msg.edit("❌ Usage: `/sg` username / id / reply", parse_mode="MARKDOWN")
+                return await status_msg.edit(" Usage: `/sg` username / id / reply", parse_mode="MARKDOWN")
             
             target_input = parts[1]
             
@@ -35,7 +35,7 @@ async def sg(client: Client, message: Message):
                 target_user_id = user.id
 
     except Exception as e:
-        return await status_msg.edit("❌ Invalid user. Please reply to a user or provide a valid username/id.")
+        return await status_msg.edit(" Invalid user. Please reply to a user or provide a valid username/id.")
 
     sangmata_bots = ["sangmata_bot", "sangmata_beta_bot"]
     sg_bot = random.choice(sangmata_bots)
@@ -44,7 +44,7 @@ async def sg(client: Client, message: Message):
         forward_msg = await ubot.send_message(sg_bot, str(target_user_id))
         await forward_msg.delete()
     except Exception as e:
-        return await status_msg.edit(f"❌ Failed to contact @`{sg_bot}`\n`{e}`", parse_mode="MARKDOWN")
+        return await status_msg.edit(f" Failed to contact @`{sg_bot}`\n`{e}`", parse_mode="MARKDOWN")
 
     await asyncio.sleep(1.5)
 
@@ -56,7 +56,7 @@ async def sg(client: Client, message: Message):
             break
 
     if not found:
-        await message.reply("🤖 Bot didn't return any username history.")
+        await message.reply(" Bot didn't return any username history.")
 
     try:
         peer = await ubot.resolve_peer(sg_bot)

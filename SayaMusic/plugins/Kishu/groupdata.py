@@ -16,15 +16,15 @@ async def groupdata_handler(client, message: Message):
     try:
         member = await client.get_chat_member(message.chat.id, message.from_user.id)
         if member.status not in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
-            warn = await message.reply_text("🚫 ONLY ADMINS CAN USE THIS!")
+            warn = await message.reply_text(" ONLY ADMINS CAN USE THIS!")
             await sleep(5)
             return await warn.delete()
     except Exception:
-        warn = await message.reply_text("🚫 Admin check failed.")
+        warn = await message.reply_text(" Admin check failed.")
         await sleep(5)
         return await warn.delete()
 
-    status = await message.reply_text("🔍 Gathering group stats...")
+    status = await message.reply_text(" Gathering group stats...")
 
     try:
         total_members = await client.get_chat_members_count(message.chat.id)
@@ -85,19 +85,19 @@ async def groupdata_handler(client, message: Message):
     title = message.chat.title or "This Group"
 
     text = (
-        f"<b>📊 Group Data Report</b>\n"
+        f"<b> Group Data Report</b>\n"
         f"<i>{now}</i>\n"
         f"────────────────────────\n"
-        f"<b>🧩 Group</b>: {title}\n"
-        f"<b>👥 Members</b>: <code>{total_members:,}</code>\n"
+        f"<b> Group</b>: {title}\n"
+        f"<b> Members</b>: <code>{total_members:,}</code>\n"
         f"────────────────────────\n"
-        f"<b>👮 Admins</b>: <code>{stats['admins']:,}</code>\n"
-        f"<b>🤖 Bots</b>: <code>{stats['bots']:,}</code>\n"
-        f"<b>🧟 Zombies</b>: <code>{stats['deleted']:,}</code>\n"
-        f"<b>🚫 Banned</b>: <code>{stats['banned']:,}</code>\n"
-        f"<b>🎁 Premium</b>: <code>{stats['premium']:,}</code>\n"
-        f"<b>🔒 Restricted</b>: <code>{stats['restricted']:,}</code>\n"
-        f"<b>👻 Fake</b>: <code>{stats['fake']:,}</code>\n"
+        f"<b> Admins</b>: <code>{stats['admins']:,}</code>\n"
+        f"<b> Bots</b>: <code>{stats['bots']:,}</code>\n"
+        f"<b> Zombies</b>: <code>{stats['deleted']:,}</code>\n"
+        f"<b> Banned</b>: <code>{stats['banned']:,}</code>\n"
+        f"<b> Premium</b>: <code>{stats['premium']:,}</code>\n"
+        f"<b> Restricted</b>: <code>{stats['restricted']:,}</code>\n"
+        f"<b> Fake</b>: <code>{stats['fake']:,}</code>\n"
         f"────────────────────────\n"
         f"<b>⏱ Time taken</b>: <code>{took}s</code>"
     )

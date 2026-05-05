@@ -21,7 +21,7 @@ async def check_bots_command(client, message):
     global last_checked_time
 
     if message.from_user.id != OWNER_ID:
-        return await message.reply_text("🚫 You are not authorized to use this command.")
+        return await message.reply_text(" You are not authorized to use this command.")
 
     if not userbot.one.is_connected:
         await userbot.one.start()
@@ -43,13 +43,13 @@ async def check_bots_command(client, message):
             await asyncio.sleep(3)
             
             async for bot_message in userbot.one.get_chat_history(bot.id, limit=1):
-                status = "ᴏɴʟɪɴᴇ ✨" if bot_message.from_user.id == bot.id else "ᴏғғʟɪɴᴇ ❄"
+                status = "ᴏɴʟɪɴᴇ " if bot_message.from_user.id == bot.id else "ᴏғғʟɪɴᴇ "
                 response += f"╭⎋ {bot.mention}\n╰⊚ **sᴛᴀᴛᴜs: {status}**\n\n"
         except Exception:
-            response += f"╭⎋ {bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ ❌**\n\n"
+            response += f"╭⎋ {bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ **\n\n"
     
     last_checked_time = start_time.strftime("%Y-%m-%d")
-    await processing_msg.edit_caption(f"{response}⏲️ ʟᴀsᴛ ᴄʜᴇᴄᴋ: {last_checked_time}")
+    await processing_msg.edit_caption(f"{response}⏲ ʟᴀsᴛ ᴄʜᴇᴄᴋ: {last_checked_time}")
 
     if userbot.one.is_connected:
         await userbot.one.stop()

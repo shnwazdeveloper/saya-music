@@ -15,18 +15,18 @@ async def extract_media(_, message: Message):
     replied = message.reply_to_message
 
     if not (replied and replied.video):
-        return await message.reply_text("❌ Please reply to a *video* message.")
+        return await message.reply_text(" Please reply to a *video* message.")
     if len(message.command) < 2:
-        return await message.reply_text("ℹ️ Use `/extract audio` or `/extract video`.", quote=True)
+        return await message.reply_text("ℹ Use `/extract audio` or `/extract video`.", quote=True)
 
     if replied.video.file_size > MAX_SIZE_BYTES:
         return await message.reply_text(
-            f"🚫 File is too large ({replied.video.file_size // (1024*1024)} MB).\n"
+            f" File is too large ({replied.video.file_size // (1024*1024)} MB).\n"
             f"Maximum allowed size is {MAX_SIZE_MB} MB."
         )
 
     command = message.command[1].lower()
-    processing_msg = await message.reply_text("🔧 Processing video…")
+    processing_msg = await message.reply_text(" Processing video…")
 
     file_path = None
     try:
@@ -41,7 +41,7 @@ async def extract_media(_, message: Message):
                 audio.export(output_audio, format="mp3")
 
             await asyncio.to_thread(process_audio)
-            await app.send_audio(message.chat.id, output_audio, caption="🎧 Audio extracted.")
+            await app.send_audio(message.chat.id, output_audio, caption=" Audio extracted.")
             os.remove(output_audio)
 
         elif command == "video":
@@ -51,14 +51,14 @@ async def extract_media(_, message: Message):
                 os.system(f"ffmpeg -hide_banner -loglevel error -i '{file_path}' -c copy -an '{output_video}'")
 
             await asyncio.to_thread(process_video)
-            await app.send_video(message.chat.id, output_video, caption="🎞️ Video with no audio.")
+            await app.send_video(message.chat.id, output_video, caption=" Video with no audio.")
             os.remove(output_video)
 
         else:
-            return await message.reply_text("❌ Invalid command. Use `/extract audio` or `/extract video`.")
+            return await message.reply_text(" Invalid command. Use `/extract audio` or `/extract video`.")
 
     except Exception as e:
-        await message.reply_text(f"❌ Error: {e}")
+        await message.reply_text(f" Error: {e}")
 
     finally:
         await processing_msg.delete()

@@ -13,19 +13,20 @@ BG_PATH = "SayaMusic/assets/saya/welcome.png"
 FALLBACK_PIC = "SayaMusic/assets/upic.png"
 FONT_PATH = "SayaMusic/assets/saya/Arimo.ttf"
 
-BTN_VIEW = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
-BTN_ADD = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
+BTN_VIEW = "View Member"
+BTN_HELP = "Help"
+BTN_ADD = "Add Bot"
 
 CAPTION_TXT = """
-**❅────✦ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ✦────❅
+**──── ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ────
 {chat_title}
 ▰▰▰▰▰▰▰▰▰▰▰▰▰
-➻ Nᴀᴍᴇ ✧ {mention}
-➻ Iᴅ ✧ `{uid}`
-➻ Usᴇʀɴᴀᴍᴇ ✧ @{uname}
-➻ Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs ✧ {count}
+ Nᴀᴍᴇ  {mention}
+ Iᴅ  `{uid}`
+ Usᴇʀɴᴀᴍᴇ  @{uname}
+ Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs  {count}
 ▰▰▰▰▰▰▰▰▰▰▰▰▰**
-**❅─────✧❅✦❅✧─────❅**
+**──────────**
 """
 
 JOIN_THRESHOLD = 20
@@ -73,7 +74,7 @@ async def safe_send(func, *args, **kwargs):
 @app.on_message(filters.command("welcome") & filters.group)
 async def toggle(client, m: Message):
     if len(m.command) != 2:
-        return await m.reply_text("**Usage:**\n⦿/welcome [on|off]\n➤ Saya Music Special Welcome.....")
+        return await m.reply_text("**Usage:**\n⦿/welcome [on|off]\n Saya Music Special Welcome.....")
     user_id = m.from_user.id if m.from_user else (m.sender_chat.id if m.sender_chat else None)
     if not user_id:
         return
@@ -85,7 +86,7 @@ async def toggle(client, m: Message):
         return await m.reply_text("**sᴏʀʀʏ ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴄʜᴀɴɢᴇ ᴡᴇʟᴄᴏᴍᴇ ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ sᴛᴀᴛᴜs!**")
     flag = m.command[1].lower()
     if flag not in ("on", "off"):
-        return await m.reply_text("**Usage:**\n⦿/welcome [on|off]\n➤ Saya Music Special Welcome.....")
+        return await m.reply_text("**Usage:**\n⦿/welcome [on|off]\n Saya Music Special Welcome.....")
     cur = await is_on(m.chat.id)
     if flag == "off" and not cur:
         return await m.reply_text("**ᴡᴇʟᴄᴏᴍᴇ ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ!**")
@@ -157,7 +158,10 @@ async def welcome(client, update: ChatMemberUpdated):
         img,
         caption=caption,
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton(BTN_VIEW, url=f"tg://openmessage?user_id={user.id}")],
+            [
+                InlineKeyboardButton(BTN_VIEW, url=f"tg://openmessage?user_id={user.id}"),
+                InlineKeyboardButton(BTN_HELP, callback_data="open_help"),
+            ],
             [InlineKeyboardButton(BTN_ADD, url=f"https://t.me/{me.username}?startgroup=true")],
         ])
     )

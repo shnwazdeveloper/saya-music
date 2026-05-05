@@ -15,12 +15,12 @@ async def mmf(_, message: Message):
         await message.reply_text("**Give me text after /mmf to memify.**")
         return
 
-    msg = await message.reply_text("❄️")
+    msg = await message.reply_text("")
     text = message.text.split(None, 1)[1]
     try:
         file = await app.download_media(reply_message)
     except Exception as e:
-        await msg.edit(f"❌ Failed to download media.\nError: {e}")
+        await msg.edit(f" Failed to download media.\nError: {e}")
         return
 
     meme = await drawText(file, text)

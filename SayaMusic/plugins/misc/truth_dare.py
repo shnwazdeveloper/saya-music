@@ -17,14 +17,14 @@ async def get_truth(client: Client, message: Message):
         if res.status_code == 200:
             question = res.json().get("question", "No question found.")
             await message.reply_text(
-                f"🔎 **Truth:**\n\n{question}",
+                f" **Truth:**\n\n{question}",
                 parse_mode=ParseMode.MARKDOWN
             )
         else:
-            await message.reply_text("❌ Failed to fetch a truth question.")
+            await message.reply_text(" Failed to fetch a truth question.")
     except Exception as e:
         print(f"Truth error: {e}")
-        await message.reply_text("⚠️ Error occurred while fetching a truth question.")
+        await message.reply_text(" Error occurred while fetching a truth question.")
 
 
 @app.on_message(filters.command("dare"))
@@ -35,11 +35,11 @@ async def get_dare(client: Client, message: Message):
         if res.status_code == 200:
             question = res.json().get("question", "No question found.")
             await message.reply_text(
-                f"🎯 **Dare:**\n\n{question}",
+                f" **Dare:**\n\n{question}",
                 parse_mode=ParseMode.MARKDOWN
             )
         else:
-            await message.reply_text("❌ Failed to fetch a dare question.")
+            await message.reply_text(" Failed to fetch a dare question.")
     except Exception as e:
         print(f"Dare error: {e}")
-        await message.reply_text("⚠️ Error occurred while fetching a dare question.")
+        await message.reply_text(" Error occurred while fetching a dare question.")

@@ -70,7 +70,7 @@ async def domain_lookup(_, message):
     data = get_domain_info(domain_name)
 
     if not data:
-        return await message.reply("⚠️ Failed to retrieve WHOIS data.")
+        return await message.reply(" Failed to retrieve WHOIS data.")
 
     response = format_info(data)
     await message.reply(response)

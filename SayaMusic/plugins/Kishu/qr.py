@@ -28,6 +28,6 @@ async def qr_handler(client, message: Message):
     if len(message.command) > 1:
         input_text = " ".join(message.command[1:])
         qr_image = generate_qr_code(input_text)
-        await message.reply_photo(qr_image, caption="📷 Here's your QR Code")
+        await message.reply_photo(qr_image, caption=" Here's your QR Code")
     else:
-        await message.reply_text("❌ Please provide the text for the QR code.\n\nExample: `/qr https://github.com/`")
+        await message.reply_text(" Please provide the text for the QR code.\n\nExample: `/qr https://github.com/`")

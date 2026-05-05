@@ -16,7 +16,7 @@ async def meme_command(client, message):
         data = response.json()
 
         if response.status_code == 403 or "message" in data and "Unable to Access Subreddit" in data["message"]:
-            await message.reply_text("❌ Memes from this category are not found. Please try a different one.")
+            await message.reply_text(" Memes from this category are not found. Please try a different one.")
             return
 
         meme_url = data.get("url")

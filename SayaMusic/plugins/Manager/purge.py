@@ -34,7 +34,7 @@ async def purge(app: Client, msg: Message):
                 await asyncio.sleep(e.value)
         await msg.delete()
         count = len(message_ids)
-        confirm = await msg.reply(f"✅ | **ᴅᴇʟᴇᴛᴇᴅ `{count}` ᴍᴇssᴀɢᴇs.**")
+        confirm = await msg.reply(f" | **ᴅᴇʟᴇᴛᴇᴅ `{count}` ᴍᴇssᴀɢᴇs.**")
         await asyncio.sleep(3)
         await confirm.delete()
     except MessageDeleteForbidden:

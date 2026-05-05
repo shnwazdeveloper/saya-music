@@ -20,7 +20,7 @@ def get_pypi_info(package_name):
 async def pypi_info_command(client, message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "**❌ Please provide a Python package name.**\n\nExample: `/pypi requests`",
+            "** Please provide a Python package name.**\n\nExample: `/pypi requests`",
             parse_mode=ParseMode.MARKDOWN
         )
 
@@ -32,16 +32,16 @@ async def pypi_info_command(client, message):
         project_url = info['project_urls'].get('Homepage') or info.get('home_page', 'N/A')
 
         info_message = (
-            f"📦 **Package Name:** `{info['name']}`\n"
+            f" **Package Name:** `{info['name']}`\n"
             f"🆕 **Latest Version:** `{info['version']}`\n"
-            f"📝 **Description:** {info['summary'] or 'No description provided.'}\n"
-            f"🔗 **Project URL:** [Click here]({project_url})"
+            f" **Description:** {info['summary'] or 'No description provided.'}\n"
+            f" **Project URL:** [Click here]({project_url})"
         )
 
         await message.reply_text(info_message, parse_mode=ParseMode.MARKDOWN)
     else:
         await message.reply_text(
-            "**❌ Please provide a valid Python package name.**\n"
+            "** Please provide a valid Python package name.**\n"
             "It might be misspelled or not published on PyPI.",
             parse_mode=ParseMode.MARKDOWN
         )

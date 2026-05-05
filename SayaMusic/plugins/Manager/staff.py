@@ -23,7 +23,7 @@ def _mention_html(user) -> str:
 async def list_admins(client, message: Message):
     if not _in_group(message):
         return await message.reply_text(
-            "⚠️ <i>Use this in a group or supergroup.</i>",
+            " <i>Use this in a group or supergroup.</i>",
             parse_mode=enums.ParseMode.HTML,
         )
     try:
@@ -49,7 +49,7 @@ async def list_admins(client, message: Message):
                     human_admins.append(user)
 
         title = html.escape(message.chat.title or "this chat")
-        txt = f"🛡 <b>Group Staff — {title}</b>\n\n"
+        txt = f" <b>Group Staff — {title}</b>\n\n"
 
         owner_line = (
             _mention_html(owners[0])
@@ -59,7 +59,7 @@ async def list_admins(client, message: Message):
 
         txt += f"<b>Owner</b>\n└ {owner_line}\n\n"
 
-        txt += "<b>👤 Admins</b>\n"
+        txt += "<b> Admins</b>\n"
         if not human_admins:
             txt += "└ <i>No human admins</i>\n"
         else:
@@ -72,7 +72,7 @@ async def list_admins(client, message: Message):
                 )
                 txt += f"{branch} {handle}\n"
 
-        txt += "\n<b>🤖 Bot Admins</b>\n"
+        txt += "\n<b> Bot Admins</b>\n"
         if not bot_admins:
             txt += "└ <i>No bot admins</i>\n"
         else:
@@ -94,7 +94,7 @@ async def list_admins(client, message: Message):
         await asyncio.sleep(e.value)
     except (ChannelInvalid, ChatAdminRequired):
         await message.reply_text(
-            "❌ <i>I need admin rights to list admins here.</i>",
+            " <i>I need admin rights to list admins here.</i>",
             parse_mode=enums.ParseMode.HTML,
         )
 
@@ -103,7 +103,7 @@ async def list_admins(client, message: Message):
 async def list_bots(client, message: Message):
     if not _in_group(message):
         return await message.reply_text(
-            "⚠️ <i>Use this in a group or supergroup.</i>",
+            " <i>Use this in a group or supergroup.</i>",
             parse_mode=enums.ParseMode.HTML,
         )
     try:
@@ -119,7 +119,7 @@ async def list_bots(client, message: Message):
             bots.append((b.user, is_admin))
 
         title = html.escape(message.chat.title or "this chat")
-        txt = f"🤖 <b>Bot List — {title}</b>\n\n<b>Bots</b>\n"
+        txt = f" <b>Bot List — {title}</b>\n\n<b>Bots</b>\n"
 
         if not bots:
             txt += "└ <i>No bots found</i>\n"
@@ -131,7 +131,7 @@ async def list_bots(client, message: Message):
                     if bt.username
                     else _mention_html(bt)
                 )
-                admin_flag = " <b>— Admin</b> 🛡" if is_admin else ""
+                admin_flag = " <b>— Admin</b> " if is_admin else ""
                 txt += f"{branch} {handle}{admin_flag}\n"
 
         txt += f"\n<b>Total Bots:</b> {len(bots)}"
@@ -142,6 +142,6 @@ async def list_bots(client, message: Message):
         await asyncio.sleep(e.value)
     except (ChannelInvalid, ChatAdminRequired):
         await message.reply_text(
-            "❌ <i>I need admin rights to list bots here.</i>",
+            " <i>I need admin rights to list bots here.</i>",
             parse_mode=enums.ParseMode.HTML,
         )
