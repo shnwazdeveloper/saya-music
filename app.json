@@ -16,12 +16,12 @@
     "API_ID": {
       "description": "Telegram API ID from https://my.telegram.org.",
       "required": true,
-      "value": ""
+      "value": "33591348"
     },
     "API_HASH": {
       "description": "Telegram API hash from https://my.telegram.org.",
       "required": true,
-      "value": ""
+      "value": "d138b2ec1432ef7da497e8e3d451140b"
     },
     "BOT_TOKEN": {
       "description": "Bot token from BotFather.",
@@ -31,7 +31,17 @@
     "OWNER_ID": {
       "description": "Telegram numeric user ID of the owner.",
       "required": true,
-      "value": ""
+      "value": "5940554521"
+    },
+    "OWNER_USERNAME": {
+      "description": "Telegram username of the owner (without @).",
+      "required": false,
+      "value": "kidzmc"
+    },
+    "BOT_USERNAME": {
+      "description": "Bot username (without @).",
+      "required": false,
+      "value": "SexySayaBot"
     },
     "LOGGER_ID": {
       "description": "Private log group or channel ID where the bot is admin.",
