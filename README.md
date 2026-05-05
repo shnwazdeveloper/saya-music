@@ -5,9 +5,10 @@ Telegram voice chat music bot for group playback with Pyrogram and PyTgCalls.
 Maintainer: [SHNWAZDEV](https://t.me/kidzmc)
 Demo Bot: [@SexySayaBot](https://t.me/SexySayaBot)
 
-## Overview
+## About
 
 Saya Music supports audio and video playback in Telegram voice chats with queue controls, multi-source search, and admin tools.
+It is designed for smooth group listening with easy setup on VPS, Docker, and Railway.
 
 Tech stack:
 - Python
