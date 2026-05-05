@@ -1,0 +1,57 @@
+{
+  "name": "Saya Music",
+  "description": "Saya Music is a Telegram music bot prepared for Docker and Railway deployment.",
+  "repository": "https://github.com/shnwazdeveloper/saya-music",
+  "logo": "https://telegra.ph/file/2c6d1a6f78eba6199933a.jpg",
+  "keywords": [
+    "python",
+    "telegram",
+    "music-bot",
+    "pyrogram",
+    "py-tgcalls",
+    "railway",
+    "docker"
+  ],
+  "env": {
+    "API_ID": {
+      "description": "Telegram API ID from https://my.telegram.org.",
+      "required": true,
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Telegram API hash from https://my.telegram.org.",
+      "required": true,
+      "value": ""
+    },
+    "BOT_TOKEN": {
+      "description": "Bot token from BotFather.",
+      "required": true,
+      "value": ""
+    },
+    "OWNER_ID": {
+      "description": "Telegram numeric user ID of the owner.",
+      "required": true,
+      "value": ""
+    },
+    "LOGGER_ID": {
+      "description": "Private log group or channel ID where the bot is admin.",
+      "required": true,
+      "value": ""
+    },
+    "STRING_SESSION": {
+      "description": "Pyrogram/Kurigram assistant account session string.",
+      "required": true,
+      "value": ""
+    },
+    "MONGO_DB_URI": {
+      "description": "MongoDB connection string.",
+      "required": true,
+      "value": ""
+    },
+    "COOKIE_URL": {
+      "description": "Raw URL to a Netscape-format YouTube cookies.txt file.",
+      "required": true,
+      "value": ""
+    }
+  }
+}
