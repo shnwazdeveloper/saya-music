@@ -1,21 +1,52 @@
 # Saya Music
 
-Saya Music is a Telegram group voice-chat music bot built with Python, Kurigram/Pyrogram, PyTgCalls, MongoDB, yt-dlp, and FFmpeg.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" />
+</p>
 
-It is prepared for Railway deployment with a Dockerfile, Procfile, and `railway.json`.
+<h3 align="center">Telegram Voice Chat Music Bot</h3>
 
-## Features
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?color=00BFFF&width=680&lines=Saya+Music+-+Fast+and+Clean+Telegram+Music+Bot;Built+with+Pyrogram+%2B+PyTgCalls+for+Group+Voice+Chats" />
+</p>
 
-- Music and video playback in Telegram group voice chats
-- YouTube, Spotify, Apple Music, SoundCloud, Resso, Telegram, and live stream support
-- Queue, pause, resume, skip, seek, loop, shuffle, and speed controls
-- Group management helpers and utility commands
-- MongoDB-backed settings, queues, sudo users, and bot state
-- Docker/Railway ready runtime
+<p align="center">
+  <a href="https://github.com/shnwazdeveloper/saya-music">
+    <img src="https://raw.githubusercontent.com/shnwazdeveloper/saya-music/Master/SayaMusic/assets/saya/welcome.png" width="720" alt="Saya Music Banner" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/shnwazdeveloper/saya-music/stargazers"><img src="https://img.shields.io/github/stars/shnwazdeveloper/saya-music?style=flat-square" /></a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/network/members"><img src="https://img.shields.io/github/forks/shnwazdeveloper/saya-music?style=flat-square" /></a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/issues"><img src="https://img.shields.io/github/issues/shnwazdeveloper/saya-music?style=flat-square" /></a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/commits/Master"><img src="https://img.shields.io/github/last-commit/shnwazdeveloper/saya-music?style=flat-square" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/shnwazdeveloper/saya-music">Repository</a> |
+  <a href="https://github.com/shnwazdeveloper/saya-music/issues">Support</a>
+</p>
+
+## About
+
+Saya Music is a Telegram group voice chat bot focused on stable playback and easy deployment.
+It uses Python with Pyrogram/Kurigram, PyTgCalls, MongoDB, yt-dlp, and FFmpeg.
+
+The project is ready for Railway with `Dockerfile`, `Procfile`, and `railway.json`.
+
+## Feature Set
+
+| Module | Details |
+| --- | --- |
+| Music Playback | Audio/video streaming in Telegram voice chats |
+| Sources | YouTube, Spotify, Apple Music, SoundCloud, Resso, Telegram files, live links |
+| Queue Controls | Queue, pause, resume, skip, stop, seek, loop, shuffle, speed |
+| Group Tools | Admin and utility commands |
+| Persistence | MongoDB for settings, queue state, and user data |
+| Deployment | Docker + Railway compatible |
 
 ## Required Environment Variables
-
-Set these variables in Railway before deploying:
 
 ```env
 API_ID=
@@ -28,7 +59,7 @@ MONGO_DB_URI=
 COOKIE_URL=https://pastebin.com/YfK14h8y
 ```
 
-Optional variables:
+Optional:
 
 ```env
 BOT_USERNAME=SayaMusicBot
@@ -45,32 +76,33 @@ UPSTREAM_BRANCH=Master
 AUTO_JOIN_GROUPS=
 ```
 
-Never commit real bot tokens, session strings, MongoDB URIs, or cookies.
+Do not commit real tokens, sessions, cookies, or database URIs.
 
-## Railway Deployment
+## Key Sources
 
-1. Fork or push this repository to GitHub as `saya-music`.
-2. Open Railway and create a new project from the GitHub repo.
-3. Add the required environment variables in the Railway service.
+- `API_ID` and `API_HASH`: [my.telegram.org](https://my.telegram.org)
+- `BOT_TOKEN`: [@BotFather](https://t.me/BotFather)
+- `STRING_SESSION`: generate a Pyrogram/Kurigram session string for assistant account
+- `LOGGER_ID`: private channel/group ID for logs (bot should be admin there)
+- `MONGO_DB_URI`: [MongoDB Atlas](https://www.mongodb.com/atlas/database) or other MongoDB host
+- `COOKIE_URL`: unlisted raw URL of Netscape `cookies.txt` (Pastebin/Batbin supported)
+
+## Deploy on Railway
+
+1. Push this repository to your GitHub account.
+2. Create a new Railway project from this repo.
+3. Add all required environment variables.
 4. Deploy.
 
-Railway will read `railway.json`, build with the Dockerfile, and start the worker with:
+Runtime command:
 
 ```bash
 python -m SayaMusic
 ```
 
-This bot is a worker process, so it does not need a public HTTP port.
+This is a worker service and does not require a public web port.
 
-## Local Docker Run
-
-```bash
-cp sample.env .env
-docker build -t saya-music .
-docker run --env-file .env --restart unless-stopped saya-music
-```
-
-## VPS Run
+## VPS Setup
 
 ```bash
 git clone https://github.com/shnwazdeveloper/saya-music
@@ -83,19 +115,20 @@ bash setup
 bash start
 ```
 
-## Getting Keys
+## Docker Setup
 
-- `API_ID` and `API_HASH`: https://my.telegram.org
-- `BOT_TOKEN`: https://t.me/BotFather
-- `STRING_SESSION`: generate a Pyrogram/Kurigram session string for the assistant account
-- `LOGGER_ID`: private group/channel ID where the bot can send logs; add the bot as admin
-- `MONGO_DB_URI`: MongoDB Atlas or another MongoDB connection string
-- `COOKIE_URL`: Pastebin/Batbin/raw URL to a Netscape-format YouTube `cookies.txt` (Pastebin links auto-convert to `/raw/...`)
+```bash
+cp sample.env .env
+docker build -t saya-music .
+docker run -d --name saya-music --env-file .env --restart unless-stopped saya-music
+```
 
-## Repository
+## Credits
 
-GitHub: https://github.com/shnwazdeveloper/saya-music
+- Base ecosystem inspired by open Telegram music bot projects
+- Maintained by [shnwazdeveloper](https://github.com/shnwazdeveloper)
 
 ## License
 
-Released under the MIT License.
+MIT License
+
