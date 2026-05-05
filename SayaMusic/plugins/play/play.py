@@ -29,6 +29,19 @@ from SayaMusic.utils.logger import play_logs
 from SayaMusic.utils.stream.stream import stream
 
 
+def _safe_play_status_text(_, channel=None):
+    if channel:
+        text = _["play_2"].format(channel)
+        if isinstance(text, str) and text.strip():
+            return text
+
+    non_empty_ayu = [txt for txt in AYU if isinstance(txt, str) and txt.strip()]
+    if non_empty_ayu:
+        return random.choice(non_empty_ayu)
+
+    return "Processing your request..."
+
+
 @app.on_message(
     filters.command(
         [
@@ -58,20 +71,14 @@ async def play_command(
     url,
     fplay,
 ):
+    status_text = _safe_play_status_text(_, channel)
     try:
-        mystic = await message.reply_text(
-            _["play_2"].format(channel) if channel else random.choice(AYU)
-        )
+        mystic = await message.reply_text(status_text)
     except FloodWait as e:
         await asyncio.sleep(e.value)
-        mystic = await message.reply_text(
-            _["play_2"].format(channel) if channel else random.choice(AYU)
-        )
+        mystic = await message.reply_text(status_text)
     except RandomIdDuplicate:
-        mystic = await app.send_message(
-            message.chat.id,
-            _["play_2"].format(channel) if channel else random.choice(AYU),
-        )
+        mystic = await app.send_message(message.chat.id, status_text)
 
     plist_id, plist_type, spotify, slider = None, None, None, None
     internal_type, log_label = None, None
@@ -551,25 +558,19 @@ async def play_music(client, CallbackQuery, _):
             return await CallbackQuery.answer(_["playcb_1"], show_alert=True)
 
         chat_id, channel = await get_channeplayCB(_, cplay, CallbackQuery)
+        status_text = _safe_play_status_text(_, channel)
 
         user_name = CallbackQuery.from_user.first_name
         await CallbackQuery.message.delete()
         await CallbackQuery.answer()
 
         try:
-            mystic = await CallbackQuery.message.reply_text(
-                _["play_2"].format(channel) if channel else random.choice(AYU)
-            )
+            mystic = await CallbackQuery.message.reply_text(status_text)
         except FloodWait as e:
             await asyncio.sleep(e.value)
-            mystic = await CallbackQuery.message.reply_text(
-                _["play_2"].format(channel) if channel else random.choice(AYU)
-            )
+            mystic = await CallbackQuery.message.reply_text(status_text)
         except RandomIdDuplicate:
-            mystic = await app.send_message(
-                CallbackQuery.message.chat.id,
-                _["play_2"].format(channel) if channel else random.choice(AYU),
-            )
+            mystic = await app.send_message(CallbackQuery.message.chat.id, status_text)
 
         details, track_id = await YouTube.track(vidid, videoid=vidid)
 
@@ -646,24 +647,18 @@ async def play_playlists_command(client, CallbackQuery, _):
             return await CallbackQuery.answer(_["playcb_1"], show_alert=True)
 
         chat_id, channel = await get_channeplayCB(_, cplay, CallbackQuery)
+        status_text = _safe_play_status_text(_, channel)
         user_name = CallbackQuery.from_user.first_name
         await CallbackQuery.message.delete()
         await CallbackQuery.answer()
 
         try:
-            mystic = await CallbackQuery.message.reply_text(
-                _["play_2"].format(channel) if channel else random.choice(AYU)
-            )
+            mystic = await CallbackQuery.message.reply_text(status_text)
         except FloodWait as e:
             await asyncio.sleep(e.value)
-            mystic = await CallbackQuery.message.reply_text(
-                _["play_2"].format(channel) if channel else random.choice(AYU)
-            )
+            mystic = await CallbackQuery.message.reply_text(status_text)
         except RandomIdDuplicate:
-            mystic = await app.send_message(
-                CallbackQuery.message.chat.id,
-                _["play_2"].format(channel) if channel else random.choice(AYU),
-            )
+            mystic = await app.send_message(CallbackQuery.message.chat.id, status_text)
 
         videoid = lyrical.get(videoid)
         video = mode == "v"

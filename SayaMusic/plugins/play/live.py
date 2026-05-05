@@ -10,6 +10,19 @@ from SayaMusic.utils.stream.stream import stream
 from config import AYU, BANNED_USERS
 
 
+def _safe_play_status_text(_, channel=None):
+    if channel:
+        text = _["play_2"].format(channel)
+        if isinstance(text, str) and text.strip():
+            return text
+
+    non_empty_ayu = [txt for txt in AYU if isinstance(txt, str) and txt.strip()]
+    if non_empty_ayu:
+        return random.choice(non_empty_ayu)
+
+    return "Processing your request..."
+
+
 @app.on_callback_query(filters.regex("LiveStream") & ~BANNED_USERS)
 @languageCB
 @capture_callback_err
@@ -42,7 +55,7 @@ async def play_live_stream(client, CallbackQuery, _):
         pass
 
     mystic = await CallbackQuery.message.reply_text(
-        _["play_2"].format(channel) if channel else random.choice(AYU)
+        _safe_play_status_text(_, channel)
     )
 
     try:
