@@ -1,4 +1,4 @@
-name: 🇮🇳 Hinglish (Desi Wala)
+name:  Hinglish (Desi Wala)
 
 general_1: "Kisi user ke message ka reply kar ya username/ID daal de bhai."
 general_2: "Kuch gadbad ho gayi processing mein yaar.\n\nException: <code>{0}</code>"
@@ -140,7 +140,7 @@ cplay_5 : "Sirf channels support karta hu bhai."
 cplay_6 : "Channel {0} ka owner hona chahiye ya group link kar.\n\nOwner: @{1}\nYa phir <code>/channelplay linked</code> use kar."
 cplay_7 : "Channel play band kar diya."
 
-play_1 : "🦋"
+play_1 : ""
 play_2 : "<b>Channel Play Mode</b>\n\nProcessing, wait kar...\n\n<b>Linked Channel:</b> {0}"
 play_3 : "Query process nahi ho payi bhai."
 play_4 : "<b>Admins Only Play</b>\nSirf admins hi play kar sakte hai\n\nPlay mode change kar /playmode se"
@@ -168,12 +168,12 @@ str_2 : "Valid stream verify ho gaya.\n\nProcessing..."
 str_3 : "YouTube live stream nahi ho paya, live format nahi mila."
 
 ping_1 : "{0} ping kar raha hu..."
-ping_2 : "{1}\n\nPing: {0}ms..\n\nSystem Stats:\n\nUptime: {2}\nRAM: {3}\nCPU: {4}\nDisk: {5}\nPytgcalls: {6}ms\n\nBy » Jarvis ♡︎"
+ping_2 : "{1}\n\nPing: {0}ms..\n\nSystem Stats:\n\nUptime: {2}\nRAM: {3}\nCPU: {4}\nDisk: {5}\nPytgcalls: {6}ms\n\nBy » Jarvis "
 
 queue_1 : "Queue la raha hu...\n\nThoda wait kar..."
 queue_2 : "Queue khali hai bhai."
 queue_3 : "<u>Queue ki list dekhne ke liye yaha click kar:</u> <a href={0}>Here</a>"
-queue_4 : "➲ <b>Queue mein #{0} pe add kiya</b>\n\nTitle: {1}\nDuration: {2} minutes\nRequested by: {3}"
+queue_4 : " <b>Queue mein #{0} pe add kiya</b>\n\nTitle: {1}\nDuration: {2} minutes\nRequested by: {3}"
 queue_5 : "Sirf ek hi track queued hai abhi.\n\nAur tracks daal to list dikha saku."
 queue_6 : "<b>Duration:</b> Unknown duration stream\n\nPoori queue list dekhne ke liye niche button daba."
 queue_7 : "\nPoori queue list dekhne ke liye niche button daba."

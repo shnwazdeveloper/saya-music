@@ -35,7 +35,7 @@ async def get_anime_info(anime_name):
     data = response.json()
 
     if 'errors' in data:
-        return None, f"❌ Error: {data['errors'][0]['message']}"
+        return None, f" Error: {data['errors'][0]['message']}"
 
     return data['data']['Media'], None
 
@@ -52,7 +52,7 @@ def clean_description(desc):
 async def anime_info(client: Client, message: Message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "❌ Please provide an anime name.\n\nExample: `/anime Naruto`",
+            " Please provide an anime name.\n\nExample: `/anime Naruto`",
             parse_mode=ParseMode.MARKDOWN
         )
 
@@ -61,7 +61,7 @@ async def anime_info(client: Client, message: Message):
 
     if not result:
         return await message.reply_text(
-            error or "❌ Anime not found.",
+            error or " Anime not found.",
         )
 
     title = result['title']['romaji']
@@ -73,16 +73,16 @@ async def anime_info(client: Client, message: Message):
     desc = clean_description(result.get('description'))
     image = result['coverImage']['large']
 
-    english_line = f"**🇺🇸 Title (English):** {english}\n" if english else ""
+    english_line = f"** Title (English):** {english}\n" if english else ""
 
     caption = (
-        f"**🎌 Title (Romaji):** {title}\n"
+        f"** Title (Romaji):** {title}\n"
         f"{english_line}"
         f"**🈶 Title (Native):** {native}\n"
-        f"**📺 Episodes:** {episodes}\n"
-        f"**📊 Score:** {score}/100\n"
-        f"**📌 Status:** {status}\n\n"
-        f"**📝 Description:**\n{desc}"
+        f"** Episodes:** {episodes}\n"
+        f"** Score:** {score}/100\n"
+        f"** Status:** {status}\n\n"
+        f"** Description:**\n{desc}"
     )
 
     await message.reply_photo(

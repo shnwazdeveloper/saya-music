@@ -20,12 +20,12 @@ async def _safe_reply_text(message: Message, *args, **kwargs):
 
 @app.on_message(filters.video_chat_started & filters.group)
 async def on_voice_chat_started(_, message: Message):
-    await _safe_reply_text(message, "🎙 **ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ!**")
+    await _safe_reply_text(message, " **ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ!**")
 
 
 @app.on_message(filters.video_chat_ended & filters.group)
 async def on_voice_chat_ended(_, message: Message):
-    await _safe_reply_text(message, "🔕 **ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴇɴᴅᴇᴅ.**")
+    await _safe_reply_text(message, " **ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴇɴᴅᴇᴅ.**")
 
 
 @app.on_message(filters.video_chat_members_invited & filters.group)
@@ -50,13 +50,13 @@ async def on_voice_chat_members_invited(_, message: Message):
     if invited:
         await _safe_reply_text(
             message,
-            f"👥 {inviter} ɪɴᴠɪᴛᴇᴅ {', '.join(invited)} ᴛᴏ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ. 😉",
+            f" {inviter} ɪɴᴠɪᴛᴇᴅ {', '.join(invited)} ᴛᴏ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ. ",
         )
 
 
 @app.on_message(filters.command("leavegroup") & filters.user(OWNER_ID) & filters.group)
 async def leave_group(_, message: Message):
-    await _safe_reply_text(message, "👋 **ʟᴇᴀᴠɪɴɢ ᴛʜɪs ɢʀᴏᴜᴘ...**")
+    await _safe_reply_text(message, " **ʟᴇᴀᴠɪɴɢ ᴛʜɪs ɢʀᴏᴜᴘ...**")
     try:
         await app.leave_chat(chat_id=message.chat.id, delete=True)
     except (ChatWriteForbidden, Forbidden, ChannelPrivate):

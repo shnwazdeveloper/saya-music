@@ -32,7 +32,7 @@ async def _dump_collection(collection, path: str):
             json.dump(data, f, ensure_ascii=False, indent=2)
 
 async def _create_backup_zip() -> str:
-    LOGGER(__name__).info("🗂️ Starting backup process for all collections…")
+    LOGGER(__name__).info(" Starting backup process for all collections…")
 
     client = AsyncIOMotorClient(MONGO_DB_URI)
     db = client[DB_NAME]
@@ -60,7 +60,7 @@ async def _create_backup_zip() -> str:
     zip_name = f"SayaMusic_Backup_{timestamp}.zip"
     zip_path = os.path.join(BACKUP_DIR, zip_name)
 
-    LOGGER(__name__).info(f"📦 Creating backup archive: {zip_name}")
+    LOGGER(__name__).info(f" Creating backup archive: {zip_name}")
 
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
         for root, _, files in os.walk(TEMP_DIR):
@@ -83,21 +83,21 @@ async def _send_backup(zip_path: str, chat_id: int, caption: str):
 @app.on_message(filters.command("backup") & filters.user(OWNER_ID))
 async def manual_backup(_: Client, message: Message):
     processing = await message.reply_text(
-        "🔐 **Starting Backup…**\n"
-        "__Please wait while we securely export your database.__ 🚀"
+        " **Starting Backup…**\n"
+        "__Please wait while we securely export your database.__ "
     )
     try:
         zip_path = await _create_backup_zip()
         caption = (
-            "✅ **Backup Successfully Completed!**\n"
-            "__Your MongoDB database has been exported.__ 📁✨\n\n"
+            " **Backup Successfully Completed!**\n"
+            "__Your MongoDB database has been exported.__ \n\n"
             f"**File:** `{os.path.basename(zip_path)}`"
         )
         await _send_backup(zip_path, message.chat.id, caption)
         await processing.delete()
     except Exception as e:
         await processing.edit_text(
-            "❌ **Backup Failed!**\n"
+            " **Backup Failed!**\n"
             f"**Error:** `{e}`"
         )
         LOGGER(__name__).error(f"Manual backup failed: {e}")
@@ -112,8 +112,8 @@ async def daily_backup_task():
         try:
             zip_path = await _create_backup_zip()
             caption = (
-                "🕛 **Daily Backup — Completed☑️**\n"
-                "__Your automatic full database backup is ready.__ 🔒📦"
+                " **Daily Backup — Completed**\n"
+                "__Your automatic full database backup is ready.__ "
             )
             await _send_backup(zip_path, LOGGER_ID, caption)
             LOGGER(__name__).info("Daily backup sent to LOGGER_ID.")

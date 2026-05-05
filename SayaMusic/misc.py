@@ -15,7 +15,7 @@ _boot_ = time.time()
 def dbb():
     global db
     db = {}
-    LOGGER(__name__).info("ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗")
+    LOGGER(__name__).info("ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ")
 
 async def sudo():
     SUDOERS.add(OWNER_ID)

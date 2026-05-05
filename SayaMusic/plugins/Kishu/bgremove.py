@@ -41,7 +41,7 @@ async def remove_background(image_path: str) -> tuple:
 
 @app.on_message(filters.command("rmbg"))
 async def remove_bg_command(client, message):
-    status = await message.reply("🖌️ Processing your image...")
+    status = await message.reply(" Processing your image...")
     replied = message.reply_to_message
 
     if not replied or not replied.photo:
@@ -54,12 +54,12 @@ async def remove_bg_command(client, message):
 
         if not success:
             error = result["errors"][0]
-            return await status.edit(f"⚠️ ERROR: {result['title']}\n{error.get('detail', '')}")
+            return await status.edit(f" ERROR: {result['title']}\n{error.get('detail', '')}")
 
-        await message.reply_photo(photo=result, caption="✅ Here's your image without background.")
+        await message.reply_photo(photo=result, caption=" Here's your image without background.")
         await message.reply_document(document=result)
         os.remove(result)
         await status.delete()
 
     except Exception as e:
-        await status.edit(f"❌ Failed to process the image.\nError: {e}")
+        await status.edit(f" Failed to process the image.\nError: {e}")

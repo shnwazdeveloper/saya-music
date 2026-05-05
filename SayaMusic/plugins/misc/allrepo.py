@@ -12,7 +12,7 @@ def chunk_string(text, chunk_size):
 @app.on_message(filters.command("allrepo"))
 async def all_repo_command(client: Client, message: Message):
     if len(message.command) < 2:
-        return await message.reply_text("❌ Please enter a GitHub username.\n\nExample: `/allrepo SayaMusics`")
+        return await message.reply_text(" Please enter a GitHub username.\n\nExample: `/allrepo SayaMusics`")
 
     username = message.command[1].strip()
 
@@ -20,7 +20,7 @@ async def all_repo_command(client: Client, message: Message):
         repo_info = await get_all_repository_info(username)
 
         if not repo_info:
-            return await message.reply_text("❌ No public repositories found or user does not exist.")
+            return await message.reply_text(" No public repositories found or user does not exist.")
 
         chunks = chunk_string(repo_info, 4000)
 
@@ -29,7 +29,7 @@ async def all_repo_command(client: Client, message: Message):
 
     except Exception as e:
         print(f"Error in /allrepo: {e}")
-        await message.reply_text("⚠️ An error occurred while fetching repositories.")
+        await message.reply_text(" An error occurred while fetching repositories.")
 
 
 async def get_all_repository_info(username: str) -> str:
@@ -45,11 +45,11 @@ async def get_all_repository_info(username: str) -> str:
         return None
 
     info_lines = [
-        f"🖇 **[{repo['name']}]({repo['html_url']})**\n"
-        f"⭐ Stars: `{repo['stargazers_count']}` | 🍴 Forks: `{repo['forks_count']}`\n"
-        f"📄 {repo['description'] or 'No description'}"
+        f" **[{repo['name']}]({repo['html_url']})**\n"
+        f"⭐ Stars: `{repo['stargazers_count']}` |  Forks: `{repo['forks_count']}`\n"
+        f" {repo['description'] or 'No description'}"
         for repo in data
     ]
 
-    profile_link = f"👤 [View GitHub Profile](https://github.com/{username})"
+    profile_link = f" [View GitHub Profile](https://github.com/{username})"
     return f"{profile_link}\n\n" + "\n\n".join(info_lines)

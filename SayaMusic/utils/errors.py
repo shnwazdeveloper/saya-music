@@ -23,7 +23,7 @@ async def send_large_error(text: str, caption: str, filename: str):
     try:
         paste_url = await SAYABIN(text)
         if paste_url:
-            await app.send_message(LOGGER_ID, f"{caption}\n\n🔗 Paste: {paste_url}")
+            await app.send_message(LOGGER_ID, f"{caption}\n\n Paste: {paste_url}")
             return
     except Exception:
         pass
@@ -31,7 +31,7 @@ async def send_large_error(text: str, caption: str, filename: str):
     path = f"{filename}.txt"
     async with aiofiles.open(path, "w") as f:
         await f.write(text)
-    await app.send_document(LOGGER_ID, path, caption="❌ Error Log (Fallback)")
+    await app.send_document(LOGGER_ID, path, caption=" Error Log (Fallback)")
     os.remove(path)
 
 
@@ -40,11 +40,11 @@ async def send_large_error(text: str, caption: str, filename: str):
 def format_traceback(err, tb, label: str, extras: dict = None) -> str:
     exc_type = type(err).__name__
     parts = [
-        f"🚨 <b>{label} Captured</b>",
-        f"📍 <b>Error Type:</b> <code>{exc_type}</code>"
+        f" <b>{label} Captured</b>",
+        f" <b>Error Type:</b> <code>{exc_type}</code>"
     ]
     if extras:
-        parts.extend([f"📌 <b>{k}:</b> <code>{v}</code>" for k, v in extras.items()])
+        parts.extend([f" <b>{k}:</b> <code>{v}</code>" for k, v in extras.items()])
     parts.append(f"\n<b>Traceback:</b>\n<pre>{tb}</pre>")
     return "\n".join(parts)
 

@@ -33,33 +33,33 @@ async def telegraph_handler(_, message: Message):
         or message.reply_to_message.video
         or message.reply_to_message.document
     ):
-        return await message.reply_text("📎 **Please reply to an image/video/document to upload.**")
+        return await message.reply_text(" **Please reply to an image/video/document to upload.**")
 
     media = message.reply_to_message
     file = media.photo or media.video or media.document
 
     if file.file_size > 200 * 1024 * 1024:
-        return await message.reply_text("⚠️ **File too large. Max size is 200MB.**")
+        return await message.reply_text(" **File too large. Max size is 200MB.**")
 
-    status = await message.reply("🔄 **Downloading your media...**")
+    status = await message.reply(" **Downloading your media...**")
 
     try:
         local_path = await media.download()
-        await status.edit("⬆️ **Uploading to Telegraph...**")
+        await status.edit("⬆ **Uploading to Telegraph...**")
         success, result = await upload_file(local_path)
 
         if success:
             await status.edit(
-                f"✅ **Uploaded successfully!**\n🔗 [Click to View]({result})",
+                f" **Uploaded successfully!**\n [Click to View]({result})",
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("📎 Open Telegraph", url=result)]]
+                    [[InlineKeyboardButton(" Open Telegraph", url=result)]]
                 ),
             )
         else:
-            await status.edit(f"❌ **Upload failed:**\n`{result}`")
+            await status.edit(f" **Upload failed:**\n`{result}`")
 
     except Exception as e:
-        await status.edit(f"❌ **Failed to process media:**\n`{e}`")
+        await status.edit(f" **Failed to process media:**\n`{e}`")
 
     finally:
         if os.path.exists(local_path):

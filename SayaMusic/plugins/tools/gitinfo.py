@@ -42,26 +42,26 @@ async def github(_, message: Message):
             async with session.get(api, timeout=aiohttp.ClientTimeout(total=15)) as r:
                 if r.status == 404:
                     return await message.reply_text(
-                        "🚫 <b>ᴜsᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ!</b>",
+                        " <b>ᴜsᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ!</b>",
                         parse_mode=ParseMode.HTML,
                         disable_web_page_preview=True,
                     )
                 if r.status == 403:
                     return await message.reply_text(
-                        "⚠️ <b>ʀᴀᴛᴇ ʟɪᴍɪᴛ ʜɪᴛ. ᴛʀʏ ᴀɢᴀɪɴ sᴏᴏɴ.</b>",
+                        " <b>ʀᴀᴛᴇ ʟɪᴍɪᴛ ʜɪᴛ. ᴛʀʏ ᴀɢᴀɪɴ sᴏᴏɴ.</b>",
                         parse_mode=ParseMode.HTML,
                         disable_web_page_preview=True,
                     )
                 if r.status != 200:
                     return await message.reply_text(
-                        f"⚠️ <b>ᴇʀʀᴏʀ ғᴇᴛᴄʜɪɴɢ ᴅᴀᴛᴀ (HTTP {r.status}).</b>",
+                        f" <b>ᴇʀʀᴏʀ ғᴇᴛᴄʜɪɴɢ ᴅᴀᴛᴀ (HTTP {r.status}).</b>",
                         parse_mode=ParseMode.HTML,
                         disable_web_page_preview=True,
                     )
                 data = await r.json()
         except Exception as e:
             return await message.reply_text(
-                f"⚠️ <b>ʀᴇQᴜᴇsᴛ ꜰᴀɪʟᴇᴅ:</b> <code>{html.escape(str(e))}</code>",
+                f" <b>ʀᴇQᴜᴇsᴛ ꜰᴀɪʟᴇᴅ:</b> <code>{html.escape(str(e))}</code>",
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True,
             )
@@ -88,18 +88,18 @@ async def github(_, message: Message):
     )
 
     caption = (
-        "<b>✨ ɢɪᴛʜᴜʙ ᴘʀᴏғɪʟᴇ ɪɴꜰᴏ</b>\n\n"
-        f"👤 <b>ɴᴀᴍᴇ:</b> <code>{name}</code>\n"
-        f"🔧 <b>ᴜsᴇʀɴᴀᴍᴇ:</b> <code>{_safe(username)}</code>\n"
-        f"📌 <b>ʙɪᴏ:</b> {bio}\n"
-        f"🏢 <b>ᴄᴏᴍᴘᴀɴʏ:</b> {company}\n"
-        f"📍 <b>ʟᴏᴄᴀᴛɪᴏɴ:</b> {location}\n"
-        f"🌐 <b>ʙʟᴏɢ:</b> {blog_disp}\n"
-        f"🗓 <b>ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:</b> <code>{created}</code>\n"
-        f"📁 <b>ᴘᴜʙʟɪᴄ ʀᴇᴘᴏs:</b> <code>{repos}</code>\n"
-        f"👥 <b>ғᴏʟʟᴏᴡᴇʀs:</b> <code>{followers}</code> | "
+        "<b> ɢɪᴛʜᴜʙ ᴘʀᴏғɪʟᴇ ɪɴꜰᴏ</b>\n\n"
+        f" <b>ɴᴀᴍᴇ:</b> <code>{name}</code>\n"
+        f" <b>ᴜsᴇʀɴᴀᴍᴇ:</b> <code>{_safe(username)}</code>\n"
+        f" <b>ʙɪᴏ:</b> {bio}\n"
+        f" <b>ᴄᴏᴍᴘᴀɴʏ:</b> {company}\n"
+        f" <b>ʟᴏᴄᴀᴛɪᴏɴ:</b> {location}\n"
+        f" <b>ʙʟᴏɢ:</b> {blog_disp}\n"
+        f" <b>ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:</b> <code>{created}</code>\n"
+        f" <b>ᴘᴜʙʟɪᴄ ʀᴇᴘᴏs:</b> <code>{repos}</code>\n"
+        f" <b>ғᴏʟʟᴏᴡᴇʀs:</b> <code>{followers}</code> | "
         f"<b>ғᴏʟʟᴏᴡɪɴɢ:</b> <code>{following}</code>\n"
-        f"🔗 <b>ᴘʀᴏғɪʟᴇ:</b> {profile_link}"
+        f" <b>ᴘʀᴏғɪʟᴇ:</b> {profile_link}"
     )
 
     keyboard = InlineKeyboardMarkup(

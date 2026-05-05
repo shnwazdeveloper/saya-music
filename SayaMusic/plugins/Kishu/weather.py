@@ -41,7 +41,7 @@ async def weather_command(client: Client, message: Message):
 
         if not coord_data.get("location"):
             return await message.reply_text(
-                "❌ <b>Location not found.</b> Please try a different city.",
+                " <b>Location not found.</b> Please try a different city.",
                 parse_mode=enums.ParseMode.HTML
             )
 
@@ -65,17 +65,17 @@ async def weather_command(client: Client, message: Message):
 
         if not obs:
             return await message.reply_text(
-                "⚠️ <b>Weather data not available</b> at the moment.",
+                " <b>Weather data not available</b> at the moment.",
                 parse_mode=enums.ParseMode.HTML
             )
 
         weather_text = (
-            f"<b>{location_name}</b> 🌍\n\n"
-            f"🌡️ <b>ᴛᴇᴍᴘᴇʀᴀᴛᴜʀᴇ:</b> <code>{obs.get('temperature', 'N/A')} °C</code>\n"
-            f"🥵 <b>ғᴇᴇʟs ʟɪᴋᴇ:</b> <code>{obs.get('temperatureFeelsLike', 'N/A')} °C</code>\n"
-            f"💧 <b>ʜᴜᴍɪᴅɪᴛʏ:</b> <code>{obs.get('relativeHumidity', 'N/A')}%</code>\n"
-            f"💨 <b>ᴡɪɴᴅ:</b> <code>{obs.get('windSpeed', 'N/A')} km/h</code>\n"
-            f"☁️ <b>ᴄᴏɴᴅɪᴛɪᴏɴ:</b> <i>{obs.get('wxPhraseLong', 'N/A')}</i>"
+            f"<b>{location_name}</b> \n\n"
+            f" <b>ᴛᴇᴍᴘᴇʀᴀᴛᴜʀᴇ:</b> <code>{obs.get('temperature', 'N/A')} °C</code>\n"
+            f" <b>ғᴇᴇʟs ʟɪᴋᴇ:</b> <code>{obs.get('temperatureFeelsLike', 'N/A')} °C</code>\n"
+            f" <b>ʜᴜᴍɪᴅɪᴛʏ:</b> <code>{obs.get('relativeHumidity', 'N/A')}%</code>\n"
+            f" <b>ᴡɪɴᴅ:</b> <code>{obs.get('windSpeed', 'N/A')} km/h</code>\n"
+            f" <b>ᴄᴏɴᴅɪᴛɪᴏɴ:</b> <i>{obs.get('wxPhraseLong', 'N/A')}</i>"
         )
 
         await message.reply_text(weather_text, parse_mode=enums.ParseMode.HTML)
@@ -83,6 +83,6 @@ async def weather_command(client: Client, message: Message):
     except Exception as e:
         print(f"Error in /weather: {e}")
         await message.reply_text(
-            "❌ <b>An error occurred</b> while fetching the weather. Please try again later.",
+            " <b>An error occurred</b> while fetching the weather. Please try again later.",
             parse_mode=enums.ParseMode.HTML
         )

@@ -19,7 +19,7 @@ async def has_permission(user_id: int, chat_id: int, permission: str) -> bool:
 
 def _view_btn(msg: Message):
     try:
-        return InlineKeyboardMarkup([[InlineKeyboardButton("📝 ᴠɪᴇᴡ ᴍᴇssᴀɢᴇ", url=msg.link)]])
+        return InlineKeyboardMarkup([[InlineKeyboardButton(" ᴠɪᴇᴡ ᴍᴇssᴀɢᴇ", url=msg.link)]])
     except Exception:
         return None
 

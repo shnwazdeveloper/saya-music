@@ -12,7 +12,7 @@ async def style_buttons(c, m, cb=False):
         text = message.text.replace("`", "")
     else:
         if len(m.command) < 2:
-            return await m.reply("❌ Please provide text to style.\n\nExample: `/font Hello World!`", quote=True)
+            return await m.reply(" Please provide text to style.\n\nExample: `/font Hello World!`", quote=True)
         message = m
         text = m.text.split(" ", 1)[1]
 
@@ -40,10 +40,10 @@ async def style_buttons(c, m, cb=False):
         [
             InlineKeyboardButton("𝘚𝘢𝘯𝘴", callback_data="style+slant"),
             InlineKeyboardButton("𝖲𝖺𝗇𝗌", callback_data="style+sim"),
-            InlineKeyboardButton("Ⓒ︎Ⓘ︎Ⓡ︎Ⓒ︎Ⓛ︎Ⓔ︎Ⓢ︎", callback_data="style+circles"),
+            InlineKeyboardButton("ⒸⒾⓇⒸⓁⒺⓈ", callback_data="style+circles"),
         ],
         [
-            InlineKeyboardButton("🅒︎🅘︎🅡︎🅒︎🅛︎🅔︎🅢︎", callback_data="style+circle_dark"),
+            InlineKeyboardButton("🅒🅘🅡🅒🅛🅔🅢", callback_data="style+circle_dark"),
             InlineKeyboardButton("𝔊𝔬𝔱𝔥𝔦𝔠", callback_data="style+gothic"),
             InlineKeyboardButton("𝕲𝖔𝖙𝖍𝖎𝖈", callback_data="style+gothic_bolt"),
         ],
@@ -52,7 +52,7 @@ async def style_buttons(c, m, cb=False):
             InlineKeyboardButton("H̆̈ă̈p̆̈p̆̈y̆̈", callback_data="style+happy"),
             InlineKeyboardButton("S̑̈ȃ̈d̑̈", callback_data="style+sad"),
         ],
-        [InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_reply"), InlineKeyboardButton("ɴᴇxᴛ ➻", callback_data="nxt")],
+        [InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_reply"), InlineKeyboardButton("ɴᴇxᴛ ", callback_data="nxt")],
     ]
 
     if cb:
@@ -68,9 +68,9 @@ async def nxt(c, m):
     if m.data == "nxt":
         buttons = [
             [
-                InlineKeyboardButton("🇸 🇵 🇪 🇨 🇮 🇦 🇱 ", callback_data="style+special"),
+                InlineKeyboardButton("       ", callback_data="style+special"),
                 InlineKeyboardButton("🅂🅀🅄🄰🅁🄴🅂", callback_data="style+squares"),
-                InlineKeyboardButton("🆂︎🆀︎🆄︎🅰︎🆁︎🅴︎🆂︎", callback_data="style+squares_bold"),
+                InlineKeyboardButton("🆂🆀🆄🅰🆁🅴🆂", callback_data="style+squares_bold"),
             ],
             [
                 InlineKeyboardButton("ꪖꪀᦔꪖꪶꪊᥴ𝓲ꪖ", callback_data="style+andalucia"),
@@ -152,10 +152,10 @@ async def style(c, m):
 
     cls = style_map.get(style)
     if not cls:
-        return await m.message.reply("❌ Unknown style type.")
+        return await m.message.reply(" Unknown style type.")
 
     if not m.message.reply_to_message or not m.message.reply_to_message.text:
-        return await m.message.reply("❌ Please reply to a text message to stylize it.")
+        return await m.message.reply(" Please reply to a text message to stylize it.")
 
     try:
         text = m.message.reply_to_message.text.split(" ", 1)[1]

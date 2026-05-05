@@ -15,21 +15,21 @@ IPQUALITYSCORE_API_KEY = "952ztTq41AxoXam43pStVjVNcEjo1ntQ"
 
 def _flag_emoji(country_code: str | None) -> str:
     if not country_code or len(country_code) != 2:
-        return "🏳️"
+        return ""
     cc = country_code.upper()
     return "".join(chr(0x1F1E6 + ord(c) - 65) for c in cc)
 
 def _score_badge(score: int | None) -> tuple[str, str]:
     if score is None:
-        return "❓ Unknown", "░░░░░░░░░░ 0/100"
+        return " Unknown", "░░░░░░░░░░ 0/100"
     blocks = max(0, min(10, round(score / 10)))
     bar = "█" * blocks + "░" * (10 - blocks)
     if score <= 20:
-        return "✅ Low Risk", f"{bar} {score}/100"
+        return " Low Risk", f"{bar} {score}/100"
     elif score <= 60:
-        return "⚠️ Medium Risk", f"{bar} {score}/100"
+        return " Medium Risk", f"{bar} {score}/100"
     else:
-        return "❌ High Risk", f"{bar} {score}/100"
+        return " High Risk", f"{bar} {score}/100"
 
 def _escape(v: str | None) -> str:
     return html.escape(v or "N/A")
@@ -76,7 +76,7 @@ def _build_card(ip: str, info: dict, score: int | None) -> tuple[str, InlineKeyb
     abuse_url = f"https://www.abuseipdb.com/check/{s_ip}"
 
     text = (
-        "<b>🔎 IP Intelligence</b>\n"
+        "<b> IP Intelligence</b>\n"
         f"{flag} <b>{s_ip}</b>\n"
         "\n"
         "┏━━━━━━━━━━━━━━━━━━━\n"
@@ -84,24 +84,24 @@ def _build_card(ip: str, info: dict, score: int | None) -> tuple[str, InlineKeyb
         f"┃ <code>{bar}</code>\n"
         "┗━━━━━━━━━━━━━━━━━━━\n"
         "\n"
-        f"🏙️ <b>City</b> : <code>{s_city}</code>\n"
-        f"🗺️ <b>Region</b> : <code>{s_region}</code>\n"
-        f"🌍 <b>Country</b> : <code>{s_country}</code>\n"
-        f"📮 <b>Postal</b> : <code>{s_postal}</code>\n"
-        f"🕒 <b>Timezone</b> : <code>{s_tz}</code>\n"
-        f"🏢 <b>ISP</b> : <code>{s_isp}</code>\n"
-        f"🔢 <b>ASN</b> : <code>{s_asn}</code>\n"
+        f" <b>City</b> : <code>{s_city}</code>\n"
+        f" <b>Region</b> : <code>{s_region}</code>\n"
+        f" <b>Country</b> : <code>{s_country}</code>\n"
+        f" <b>Postal</b> : <code>{s_postal}</code>\n"
+        f" <b>Timezone</b> : <code>{s_tz}</code>\n"
+        f" <b>ISP</b> : <code>{s_isp}</code>\n"
+        f" <b>ASN</b> : <code>{s_asn}</code>\n"
     )
 
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🗺️ View on Maps", url=maps_url),
-                InlineKeyboardButton("ℹ️ ipinfo", url=ipinfo_url),
+                InlineKeyboardButton(" View on Maps", url=maps_url),
+                InlineKeyboardButton("ℹ ipinfo", url=ipinfo_url),
             ],
             [
-                InlineKeyboardButton("🛡️ IPQualityScore", url=ipqs_url),
-                InlineKeyboardButton("🚫 AbuseIPDB", url=abuse_url),
+                InlineKeyboardButton(" IPQualityScore", url=ipqs_url),
+                InlineKeyboardButton(" AbuseIPDB", url=abuse_url),
             ],
         ]
     )
@@ -163,7 +163,7 @@ async def ip_info_and_score(_, message):
         )
         return
 
-    wait_msg = await message.reply_text("Analyzing IP… <i>fetching intelligence</i> 🔍")
+    wait_msg = await message.reply_text("Analyzing IP… <i>fetching intelligence</i> ")
 
     async with httpx.AsyncClient(headers={"User-Agent": "SayaX/IpIntel/1.0"}) as client:
         ipinfo_task = fetch_ipinfo(client, ip_raw)

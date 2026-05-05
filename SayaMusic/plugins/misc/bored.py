@@ -15,7 +15,7 @@ async def bored_command(client: Client, message: Message):
 
         if response.status_code != 200:
             return await message.reply_text(
-                "❌ Failed to fetch a fun activity. Try again later.",
+                " Failed to fetch a fun activity. Try again later.",
             )
 
         data = response.json()
@@ -23,14 +23,14 @@ async def bored_command(client: Client, message: Message):
 
         if activity:
             await message.reply_text(
-                f"😐 **Feeling bored?**\n\n🎯 **Try this:** `{activity}`",
+                f" **Feeling bored?**\n\n **Try this:** `{activity}`",
                 parse_mode=ParseMode.MARKDOWN
             )
         else:
-            await message.reply_text("🤷 No activity found.")
+            await message.reply_text(" No activity found.")
 
     except Exception as e:
         print(f"Bored API error: {e}")
         await message.reply_text(
-            "⚠️ Something went wrong while fetching boredom busters.",
+            " Something went wrong while fetching boredom busters.",
         )

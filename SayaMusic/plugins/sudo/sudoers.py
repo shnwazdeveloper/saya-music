@@ -68,7 +68,7 @@ async def view_sudo_list_callback(client, callback_query: CallbackQuery):
         return await callback_query.answer("ᴏɴʟʏ sᴜᴅᴏᴇʀs ᴀɴᴅ ᴏᴡɴᴇʀ ᴄᴀɴ ᴀᴄᴄᴇss ᴛʜɪs", show_alert=True)
 
     owner = await app.get_users(OWNER_ID)
-    caption = f"**˹ʟɪsᴛ ᴏғ ʙᴏᴛ ᴍᴏᴅᴇʀᴀᴛᴏʀs˼**\n\n**🌹Oᴡɴᴇʀ** ➥ {owner.mention}\n\n"
+    caption = f"**˹ʟɪsᴛ ᴏғ ʙᴏᴛ ᴍᴏᴅᴇʀᴀᴛᴏʀs˼**\n\n**Oᴡɴᴇʀ**  {owner.mention}\n\n"
     keyboard = [[InlineKeyboardButton("๏ ᴠɪᴇᴡ ᴏᴡɴᴇʀ ๏", url=f"tg://openmessage?user_id={OWNER_ID}")]]
 
     count = 0
@@ -78,7 +78,7 @@ async def view_sudo_list_callback(client, callback_query: CallbackQuery):
         try:
             user = await app.get_users(user_id)
             count += 1
-            caption += f"**🎁 Sᴜᴅᴏ {count} »** {user.mention}\n"
+            caption += f"** Sᴜᴅᴏ {count} »** {user.mention}\n"
             keyboard.append([
                 InlineKeyboardButton(f"๏ ᴠɪᴇᴡ sᴜᴅᴏ {count} ๏", url=f"tg://openmessage?user_id={user_id}")
             ])

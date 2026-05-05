@@ -13,7 +13,7 @@ mongo_url_pattern = re.compile(r"mongodb(?:\+srv)?:\/\/[^\s]+")
 async def mongo_command(client: Client, message: Message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "❌ **Usage:** `/mongochk <your_mongodb_url>`",
+            " **Usage:** `/mongochk <your_mongodb_url>`",
             parse_mode=ParseMode.MARKDOWN
         )
 
@@ -21,7 +21,7 @@ async def mongo_command(client: Client, message: Message):
 
     if not re.match(mongo_url_pattern, mongo_url):
         return await message.reply_text(
-            "❌ **Invalid MongoDB URL format.**\nIt should start with `mongodb://` or `mongodb+srv://`.",
+            " **Invalid MongoDB URL format.**\nIt should start with `mongodb://` or `mongodb+srv://`.",
             parse_mode=ParseMode.MARKDOWN
         )
 
@@ -29,11 +29,11 @@ async def mongo_command(client: Client, message: Message):
         mongo_client = MongoClient(mongo_url, serverSelectionTimeoutMS=5000)
         mongo_client.server_info()
         await message.reply_text(
-            "✅ **MongoDB URL is valid and connection was successful.**",
+            " **MongoDB URL is valid and connection was successful.**",
             parse_mode=ParseMode.MARKDOWN
         )
     except Exception as e:
         await message.reply_text(
-            f"❌ **Failed to connect to MongoDB:**\n`{str(e)}`",
+            f" **Failed to connect to MongoDB:**\n`{str(e)}`",
             parse_mode=ParseMode.MARKDOWN
         )

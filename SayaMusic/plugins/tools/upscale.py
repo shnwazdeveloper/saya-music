@@ -39,13 +39,13 @@ async def post_data(url: str, data: dict, headers: dict):
 @app.on_message(filters.command("upscale"))
 async def upscale_image(_, message: Message):
     if not DEEP_API:
-        return await message.reply_text("🚫 Missing DeepAI API key.")
+        return await message.reply_text(" Missing DeepAI API key.")
 
     reply = message.reply_to_message
     if not reply or not reply.photo:
-        return await message.reply_text("📎 Please reply to an image.")
+        return await message.reply_text(" Please reply to an image.")
 
-    status = await message.reply_text("🔄 Upscaling image...")
+    status = await message.reply_text(" Upscaling image...")
 
     try:
         local_path = await reply.download()
@@ -57,23 +57,23 @@ async def upscale_image(_, message: Message):
 
         image_url = resp.get("output_url")
         if not image_url:
-            return await status.edit("❌ Upscale request failed.")
+            return await status.edit(" Upscale request failed.")
 
         final_path = await download_from_url(local_path, image_url)
         if not final_path:
-            return await status.edit("❌ Could not download result.")
+            return await status.edit(" Could not download result.")
 
         await status.delete()
         await message.reply_document(final_path)
 
     except Exception as e:
-        await status.edit(f"⚠️ Error: `{str(e)}`")
+        await status.edit(f" Error: `{str(e)}`")
 
 
 @app.on_message(filters.command("getdraw"))
 async def draw_image(_, message: Message):
     if not DEEP_API:
-        return await message.reply_text("🚫 DeepAI API key is missing.")
+        return await message.reply_text(" DeepAI API key is missing.")
 
     reply = message.reply_to_message
     query = None
@@ -84,9 +84,9 @@ async def draw_image(_, message: Message):
         query = message.text.split(None, 1)[1]
 
     if not query:
-        return await message.reply_text("💬 Please reply or provide text.")
+        return await message.reply_text(" Please reply or provide text.")
 
-    status = await message.reply_text("🎨 Generating image...")
+    status = await message.reply_text(" Generating image...")
 
     user_id = message.from_user.id
     chat_id = message.chat.id
@@ -101,14 +101,14 @@ async def draw_image(_, message: Message):
 
         image_url = resp.get("output_url")
         if not image_url:
-            return await status.edit("❌ Failed to generate image.")
+            return await status.edit(" Failed to generate image.")
 
         final_path = await download_from_url(temp_path, image_url)
         if not final_path:
-            return await status.edit("❌ Error downloading image.")
+            return await status.edit(" Error downloading image.")
 
         await status.delete()
         await message.reply_photo(final_path, caption=f"`{query}`")
 
     except Exception as e:
-        await status.edit(f"⚠️ Error: `{str(e)}`")
+        await status.edit(f" Error: `{str(e)}`")

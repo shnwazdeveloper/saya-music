@@ -88,20 +88,20 @@ async def join_watcher(_, message: Message):
                 pass
 
             caption = (
-                "📝 **ᴍᴜsɪᴄ ʙᴏᴛ ᴀᴅᴅᴇᴅ ɪɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ**\n\n"
-                "❅─────✧❅✦❅✧─────❅\n\n"
-                f"📌 **ᴄʜᴀᴛ ɴᴀᴍᴇ:** `{chat.title}`\n"
-                f"🍂 **ᴄʜᴀᴛ ɪᴅ:** `{chat.id}`\n"
-                f"🔐 **ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ:** @{chat.username if chat.username else 'Private'}\n"
-                f"🛰 **ᴄʜᴀᴛ ʟɪɴᴋ:** [ᴄʟɪᴄᴋ ʜᴇʀᴇ]({invite_link or 'https://t.me/'})\n"
-                f"📈 **ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs:** `{member_count}`\n"
-                f"🤔 **ᴀᴅᴅᴇᴅ ʙʏ:** {message.from_user.mention if message.from_user else 'Unknown'}"
+                " **ᴍᴜsɪᴄ ʙᴏᴛ ᴀᴅᴅᴇᴅ ɪɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ**\n\n"
+                "──────────\n\n"
+                f" **ᴄʜᴀᴛ ɴᴀᴍᴇ:** `{chat.title}`\n"
+                f" **ᴄʜᴀᴛ ɪᴅ:** `{chat.id}`\n"
+                f" **ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ:** @{chat.username if chat.username else 'Private'}\n"
+                f" **ᴄʜᴀᴛ ʟɪɴᴋ:** [ᴄʟɪᴄᴋ ʜᴇʀᴇ]({invite_link or 'https://t.me/'})\n"
+                f" **ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs:** `{member_count}`\n"
+                f" **ᴀᴅᴅᴇᴅ ʙʏ:** {message.from_user.mention if message.from_user else 'Unknown'}"
             )
 
             reply_markup = None
             if _is_valid_url(invite_link):
                 reply_markup = InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("sᴇᴇ ɢʀᴏᴜᴘ 👀", url=invite_link.strip())]]
+                    [[InlineKeyboardButton("sᴇᴇ ɢʀᴏᴜᴘ ", url=invite_link.strip())]]
                 )
 
             await safe_send_photo(
@@ -127,11 +127,11 @@ async def on_left_chat_member(_, message: Message):
         chat = message.chat
 
         text = (
-            "✫ **<u>#ʟᴇғᴛ_ɢʀᴏᴜᴘ</u>** ✫\n\n"
-            f"📌 **ᴄʜᴀᴛ ɴᴀᴍᴇ:** `{chat.title}`\n"
+            " **<u>#ʟᴇғᴛ_ɢʀᴏᴜᴘ</u>** \n\n"
+            f" **ᴄʜᴀᴛ ɴᴀᴍᴇ:** `{chat.title}`\n"
             f"🆔 **ᴄʜᴀᴛ ɪᴅ:** `{chat.id}`\n"
-            f"👤 **ʀᴇᴍᴏᴠᴇᴅ ʙʏ:** {remover}\n"
-            f"🤖 **ʙᴏᴛ:** @{BOT_INFO.username}"
+            f" **ʀᴇᴍᴏᴠᴇᴅ ʙʏ:** {remover}\n"
+            f" **ʙᴏᴛ:** @{BOT_INFO.username}"
         )
 
         max_retries = 3

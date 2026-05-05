@@ -119,7 +119,7 @@ async def promote_command(client, message: Message):
             try:
                 await client.set_administrator_title(message.chat.id, uid, title)
             except ValueError:
-                title = "⚠️ Couldn’t set custom title (not a supergroup)"
+                title = " Couldn’t set custom title (not a supergroup)"
         await message.reply_text(_format_success("Promoted", message, uid, name, title))
     except ChatAdminRequired:
         await message.reply_text("I need promote permissions.")
@@ -153,7 +153,7 @@ async def fullpromote_command(client, message: Message):
             try:
                 await client.set_administrator_title(message.chat.id, uid, title)
             except ValueError:
-                title = "⚠️ Couldn’t set custom title (not a supergroup)"
+                title = " Couldn’t set custom title (not a supergroup)"
         await message.reply_text(_format_success("Fully promoted", message, uid, name, title))
     except ChatAdminRequired:
         await message.reply_text("I need promote permissions.")
@@ -229,7 +229,7 @@ async def tempadmin_command(client, message: Message):
             try:
                 await client.set_administrator_title(message.chat.id, uid, title)
             except ValueError:
-                title = "⚠️ Couldn’t set custom title (not a supergroup)"
+                title = " Couldn’t set custom title (not a supergroup)"
         await message.reply_text(_format_success(f"Temp‑promoted for {time_arg}", message, uid, name, title))
     except ChatAdminRequired:
         return await message.reply_text("I need promote permissions.")

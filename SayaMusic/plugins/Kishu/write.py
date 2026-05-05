@@ -15,11 +15,11 @@ async def handwrite(_, message: Message):
         text = message.text.split(None, 1)[1]
     else:
         return await message.reply_text(
-            "❌ Please provide some text to write.\n\nUse `/write your message` or reply to a message.",
+            " Please provide some text to write.\n\nUse `/write your message` or reply to a message.",
             parse_mode=enums.ParseMode.MARKDOWN
         )
 
-    msg = await message.reply_text("✍️ Please wait...\nWriting your text...")
+    msg = await message.reply_text(" Please wait...\nWriting your text...")
 
     try:
         response = requests.get(f"https://apis.xditya.me/write?text={text}")
@@ -28,14 +28,14 @@ async def handwrite(_, message: Message):
         image_url = response.url
     except Exception:
         return await msg.edit(
-            "❌ Failed to generate handwritten text. Try again later.",
+            " Failed to generate handwritten text. Try again later.",
             parse_mode=enums.ParseMode.MARKDOWN
         )
 
     caption = (
-        f"📝 𝒮𝓊𝒸𝒸𝑒𝓈𝓈!\n\n"
-        f"✨ 𝒲𝓇𝒾𝓉𝓉𝑒𝓃 𝒷𝓎: [𝐀𝐍𝐍𝐈𝐄](https://t.me/{BOT_USERNAME})\n"
-        f"🥀 𝑅𝑒𝓆𝓊𝑒𝓈𝓉𝑒𝒹 𝒷𝓎: {message.from_user.mention}"
+        f" 𝒮𝓊𝒸𝒸𝑒𝓈𝓈!\n\n"
+        f" 𝒲𝓇𝒾𝓉𝓉𝑒𝓃 𝒷𝓎: [𝐀𝐍𝐍𝐈𝐄](https://t.me/{BOT_USERNAME})\n"
+        f" 𝑅𝑒𝓆𝓊𝑒𝓈𝓉𝑒𝒹 𝒷𝓎: {message.from_user.mention}"
     )
 
     await msg.delete()
@@ -46,7 +46,7 @@ async def handwrite(_, message: Message):
 async def date_to_day_command(client: Client, message: Message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "❌ Please provide a date in this format: `/day 1947-08-15`",
+            " Please provide a date in this format: `/day 1947-08-15`",
             parse_mode=enums.ParseMode.MARKDOWN
         )
 
@@ -56,11 +56,11 @@ async def date_to_day_command(client: Client, message: Message):
         day_of_week = date_object.strftime("%A")
 
         await message.reply_text(
-            f"📆 The day of the week for `{input_date}` is **{day_of_week}**.",
+            f" The day of the week for `{input_date}` is **{day_of_week}**.",
             parse_mode=enums.ParseMode.MARKDOWN
         )
     except ValueError:
         await message.reply_text(
-            "❌ Invalid date format. Please use: `/day YYYY-MM-DD`",
+            " Invalid date format. Please use: `/day YYYY-MM-DD`",
             parse_mode=enums.ParseMode.MARKDOWN
         )

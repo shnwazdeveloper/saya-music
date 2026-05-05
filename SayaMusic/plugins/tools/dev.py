@@ -87,7 +87,7 @@ async def executor(client: Client, message: Message):
                     callback_data=f"runtime {round(t2 - t1, 3)} Seconds",
                 ),
                 InlineKeyboardButton(
-                    text="🗑",
+                    text="",
                     callback_data=f"forceclose abc|{message.from_user.id}",
                 ),
             ]

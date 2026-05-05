@@ -45,8 +45,8 @@ EOF
 
 info(){ printf "  %sℹ%s %s\n" "$(c blue)" "$(c reset)" "$1"; }
 warn(){ printf "  %s!%s %s\n"  "$(c yellow)" "$(c reset)" "$1"; }
-good(){ printf "  %s✔%s %s\n" "$(c green)" "$(c reset)" "$1"; }
-bad(){  printf "  %s✖%s %s\n" "$(c red)"   "$(c reset)" "$1"; }
+good(){ printf "  %s%s %s\n" "$(c green)" "$(c reset)" "$1"; }
+bad(){  printf "  %s%s %s\n" "$(c red)"   "$(c reset)" "$1"; }
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"

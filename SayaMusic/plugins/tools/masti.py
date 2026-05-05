@@ -20,14 +20,14 @@ MEDIA = {
 }
 
 TEMPLATES = {
-    "cutie": "🍑 {mention} ɪꜱ {percent}% ᴄᴜᴛᴇ ʙᴀʙʏ🥀",
-    "horny": "🔥 {mention} ɪꜱ {percent}% ʜᴏʀɴʏ!",
-    "hot": "🔥 {mention} ɪꜱ {percent}% ʜᴏᴛ!",
-    "sexy": "💋 {mention} ɪꜱ {percent}% ꜱᴇxʏ!",
-    "gay": "🍷 {mention} ɪꜱ {percent}% ɢᴀʏ!",
-    "lesbian": "💜 {mention} ɪꜱ {percent}% ʟᴇꜱʙɪᴀɴ!",
-    "boob": "🍒 {mention}ꜱ ʙᴏᴏʙ ꜱɪᴢᴇ ɪꜱ {percent}!",
-    "cock": "🍆 {mention} ᴄᴏᴄᴋ ꜱɪᴢᴇ ɪꜱ {percent}ᴄᴍ!",
+    "cutie": " {mention} ɪꜱ {percent}% ᴄᴜᴛᴇ ʙᴀʙʏ",
+    "horny": " {mention} ɪꜱ {percent}% ʜᴏʀɴʏ!",
+    "hot": " {mention} ɪꜱ {percent}% ʜᴏᴛ!",
+    "sexy": " {mention} ɪꜱ {percent}% ꜱᴇxʏ!",
+    "gay": " {mention} ɪꜱ {percent}% ɢᴀʏ!",
+    "lesbian": " {mention} ɪꜱ {percent}% ʟᴇꜱʙɪᴀɴ!",
+    "boob": " {mention}ꜱ ʙᴏᴏʙ ꜱɪᴢᴇ ɪꜱ {percent}!",
+    "cock": " {mention} ᴄᴏᴄᴋ ꜱɪᴢᴇ ɪꜱ {percent}ᴄᴍ!",
 }
 
 

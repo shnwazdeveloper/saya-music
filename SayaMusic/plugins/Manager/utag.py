@@ -37,9 +37,9 @@ async def tag_all_users(client: Client, message: Message):
             if usernum == 5:
                 try:
                     if replied:
-                        await replied.reply_text(f"{text}\n{usertxt}\n📢 ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
+                        await replied.reply_text(f"{text}\n{usertxt}\n ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
                     else:
-                        await message.reply_text(f"{text}\n{usertxt}\n📢 ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
+                        await message.reply_text(f"{text}\n{usertxt}\n ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
                 except FloodWait as e:
                     await asyncio.sleep(e.value)
                 except Exception:
@@ -51,13 +51,13 @@ async def tag_all_users(client: Client, message: Message):
         if usertxt:
             try:
                 if replied:
-                    await replied.reply_text(f"{text}\n{usertxt}\n📢 ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
+                    await replied.reply_text(f"{text}\n{usertxt}\n ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
                 else:
-                    await message.reply_text(f"{text}\n{usertxt}\n📢 ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
+                    await message.reply_text(f"{text}\n{usertxt}\n ᴛᴀɢɢɪɴɢ {total_tagged} ᴜsᴇʀs ᴅᴏɴᴇ...")
             except Exception:
                 pass
 
-        await message.reply(f"✅ **ᴛᴀɢɢɪɴɢ ᴄᴏᴍᴘʟᴇᴛᴇᴅ. ᴛᴏᴛᴀʟ:** `{total_tagged}` **ᴜsᴇʀs.**")
+        await message.reply(f" **ᴛᴀɢɢɪɴɢ ᴄᴏᴍᴘʟᴇᴛᴇᴅ. ᴛᴏᴛᴀʟ:** `{total_tagged}` **ᴜsᴇʀs.**")
 
     finally:
         spam_chats.discard(message.chat.id)
@@ -80,4 +80,4 @@ async def cancel_spam(client: Client, message: Message):
         return await message.reply("**ᴇʀʀᴏʀ ᴄʜᴇᴄᴋɪɴɢ ᴀᴅᴍɪɴ sᴛᴀᴛᴜs.**")
 
     spam_chats.discard(chat_id)
-    return await message.reply("**🚫 ᴛᴀɢɢɪɴɢ ᴄᴀɴᴄᴇʟʟᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ.**")
+    return await message.reply("** ᴛᴀɢɢɪɴɢ ᴄᴀɴᴄᴇʟʟᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ.**")

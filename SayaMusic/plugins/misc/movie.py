@@ -14,19 +14,19 @@ TMDB_BASE = "https://api.themoviedb.org/3"
 async def movie_command(client: Client, message: Message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "❌ Please provide a movie name.\n\nExample: `/movie Inception`",
+            " Please provide a movie name.\n\nExample: `/movie Inception`",
             parse_mode=ParseMode.MARKDOWN
         )
 
     movie_name = " ".join(message.command[1:])
-    status = await message.reply_text("🔎 Searching for the movie...")
+    status = await message.reply_text(" Searching for the movie...")
 
     try:
         info = await get_movie_info(movie_name)
         await status.edit_text(info, parse_mode=ParseMode.MARKDOWN)
     except Exception as e:
         print(f"[Movie Error] {e}")
-        await status.edit_text("❌ Failed to fetch movie information.")
+        await status.edit_text(" Failed to fetch movie information.")
 
 
 async def get_movie_info(query: str) -> str:
@@ -37,7 +37,7 @@ async def get_movie_info(query: str) -> str:
         })
         search_data = search.json()
         if not search_data.get("results"):
-            return "❌ Movie not found."
+            return " Movie not found."
 
         movie = search_data["results"][0]
         movie_id = movie["id"]
@@ -62,12 +62,12 @@ async def get_movie_info(query: str) -> str:
         revenue_str = f"${revenue:,}" if revenue else "Not Available"
 
         info = (
-            f"🎬 **Title:** {title}\n"
-            f"📅 **Release Date:** {release}\n"
+            f" **Title:** {title}\n"
+            f" **Release Date:** {release}\n"
             f"⭐ **Rating:** {rating}/10\n"
-            f"🎭 **Top Cast:** {actors}\n"
-            f"💰 **Box Office:** {revenue_str}\n\n"
-            f"📝 **Overview:**\n{overview}"
+            f" **Top Cast:** {actors}\n"
+            f" **Box Office:** {revenue_str}\n\n"
+            f" **Overview:**\n{overview}"
         )
 
         return info

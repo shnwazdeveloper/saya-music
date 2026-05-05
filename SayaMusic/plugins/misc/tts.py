@@ -81,7 +81,7 @@ def _build_keyboard(
     if page > 1:
         nav.append(
             InlineKeyboardButton(
-                "◀️ Prev",
+                "◀ Prev",
                 callback_data="tts:"
                 + f"s={step}"
                 + "".join(f"|{k}={v}" for k, v in extra.items())
@@ -91,7 +91,7 @@ def _build_keyboard(
     if page < total_pages:
         nav.append(
             InlineKeyboardButton(
-                "Next ▶️",
+                "Next ▶",
                 callback_data="tts:"
                 + f"s={step}"
                 + "".join(f"|{k}={v}" for k, v in extra.items())
@@ -124,7 +124,7 @@ async def _synthesize(voice: str, text: str, out_path: str) -> None:
 async def cmd_voices(client: Client, message: Message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "❌ Please provide the text to convert.\n\nExample: `/voices Hello world`",
+            " Please provide the text to convert.\n\nExample: `/voices Hello world`",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -135,7 +135,7 @@ async def cmd_voices(client: Client, message: Message):
 
     kb = _build_keyboard(_languages, step="lang", extra={}, page=1)
     await message.reply_text(
-        "🌐 **Step 1:** Select a language",
+        " **Step 1:** Select a language",
         reply_markup=kb,
         parse_mode=ParseMode.MARKDOWN,
     )
@@ -145,7 +145,7 @@ async def cmd_voices(client: Client, message: Message):
 async def cmd_tts(client: Client, message: Message):
     if len(message.command) < 3:
         return await message.reply_text(
-            "❌ Usage:\n`/tts <voice_model> <text>`\nAlternatively try `/voices` for guided selection.",
+            " Usage:\n`/tts <voice_model> <text>`\nAlternatively try `/voices` for guided selection.",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -156,7 +156,7 @@ async def cmd_tts(client: Client, message: Message):
 
     if not any(v["short_name"] == voice for v in _voices):
         return await message.reply_text(
-            f"⚠️ Unknown voice: `{voice}`\nUse `/voiceall` or `/voices` to browse voices.",
+            f" Unknown voice: `{voice}`\nUse `/voiceall` or `/voices` to browse voices.",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -171,12 +171,12 @@ async def cmd_tts(client: Client, message: Message):
         await client.send_audio(
             chat_id=message.chat.id,
             audio=tmp,
-            caption=f"🗣️ `{voice}`",
+            caption=f" `{voice}`",
             reply_to_message_id=message.id,
             parse_mode=ParseMode.MARKDOWN,
         )
     except Exception as exc:
-        await message.reply_text(f"⚠️ Failed to generate speech: {exc}")
+        await message.reply_text(f" Failed to generate speech: {exc}")
     finally:
         _cleanup(tmp)
 
@@ -194,14 +194,14 @@ async def cb_tts(client: Client, callback: CallbackQuery):
     text = _voice_sessions.get(key)
     if not text:
         return await callback.answer(
-            "⚠️ Session expired. Send `/voices` again.", show_alert=True
+            " Session expired. Send `/voices` again.", show_alert=True
         )
 
     if step == "lang":
         if "v" not in parts:
             kb = _build_keyboard(_languages, "lang", {}, page)
             return await callback.edit_message_text(
-                "🌐 **Step 1:** Select a language",
+                " **Step 1:** Select a language",
                 reply_markup=kb,
                 parse_mode=ParseMode.MARKDOWN,
             )
@@ -216,7 +216,7 @@ async def cb_tts(client: Client, callback: CallbackQuery):
         )
         kb = _build_keyboard(regions, "region", {"l": lang}, 1)
         return await callback.edit_message_text(
-            "🌍 **Step 2:** Select a region",
+            " **Step 2:** Select a region",
             reply_markup=kb,
             parse_mode=ParseMode.MARKDOWN,
         )
@@ -234,7 +234,7 @@ async def cb_tts(client: Client, callback: CallbackQuery):
             )
             kb = _build_keyboard(regions, "region", {"l": lang}, page)
             return await callback.edit_message_text(
-                "🌍 **Step 2:** Select a region",
+                " **Step 2:** Select a region",
                 reply_markup=kb,
                 parse_mode=ParseMode.MARKDOWN,
             )
@@ -244,7 +244,7 @@ async def cb_tts(client: Client, callback: CallbackQuery):
         models = sorted([v["short_name"] for v in _voices if v["locale"] == locale])
         kb = _build_keyboard(models, "model", {"l": lang, "r": region}, 1)
         return await callback.edit_message_text(
-            "🔊 **Step 3:** Choose a voice model",
+            " **Step 3:** Choose a voice model",
             reply_markup=kb,
             parse_mode=ParseMode.MARKDOWN,
         )
@@ -258,7 +258,7 @@ async def cb_tts(client: Client, callback: CallbackQuery):
             models = sorted([v["short_name"] for v in _voices if v["locale"] == locale])
             kb = _build_keyboard(models, "model", {"l": lang, "r": region}, page)
             return await callback.edit_message_text(
-                "🔊 **Step 3:** Choose a voice model",
+                " **Step 3:** Choose a voice model",
                 reply_markup=kb,
                 parse_mode=ParseMode.MARKDOWN,
             )
@@ -275,19 +275,19 @@ async def cb_tts(client: Client, callback: CallbackQuery):
             await client.send_audio(
                 chat_id=callback.message.chat.id,
                 audio=tmp,
-                caption=f"🗣️ `{voice}`",
+                caption=f" `{voice}`",
                 reply_to_message_id=callback.message.reply_to_message.id if callback.message.reply_to_message else callback.message.id,
                 parse_mode=ParseMode.MARKDOWN,
             )
-            await callback.edit_message_text("✅ Audio generated successfully!")
+            await callback.edit_message_text(" Audio generated successfully!")
         except Exception as exc:
-            await callback.message.reply_text(f"⚠️ Generation failed: {exc}")
+            await callback.message.reply_text(f" Generation failed: {exc}")
         finally:
             _cleanup(tmp)
             _voice_sessions.pop(key, None)
         return await callback.answer()
 
-    await callback.answer("🤔 Unknown action. Send /voices again.", show_alert=True)
+    await callback.answer(" Unknown action. Send /voices again.", show_alert=True)
 
 
 @app.on_message(filters.command("voiceall"))
@@ -304,6 +304,6 @@ async def cmd_voiceall(client: Client, message: Message):
         tmp_file.write("\n".join(lines).encode("utf-8"))
 
     try:
-        await message.reply_document(document=path, caption="📋 List of all available voices")
+        await message.reply_document(document=path, caption=" List of all available voices")
     finally:
         _cleanup(path)

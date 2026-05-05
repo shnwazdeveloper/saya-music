@@ -84,7 +84,7 @@ async def couples_handler(_, message: Message):
     if message.chat.type == ChatType.PRIVATE:
         return await message.reply("**ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴏɴʟʏ ᴡᴏʀᴋs ɪɴ ɢʀᴏᴜᴘs.**")
 
-    wait = await message.reply("🦋")
+    wait = await message.reply("")
     cid = message.chat.id
     date = today()
 
@@ -122,12 +122,12 @@ async def couples_handler(_, message: Message):
         await save_couple(cid, date, {"user1": uid1, "user2": uid2}, img_path)
 
     caption = (
-        "💌 **ᴄᴏᴜᴘʟᴇ ᴏꜰ ᴛʜᴇ ᴅᴀʏ!** 💗\n\n"
-        "╔═══✿═══❀═══✿═══╗\n"
-        f"💌 **ᴛᴏᴅᴀʏ'ꜱ ᴄᴏᴜᴘʟᴇ:**\n⤷ {user1.mention} 💞 {user2.mention}\n"
-        "╚═══✿═══❀═══✿═══╝\n\n"
-        f"📅 **ɴᴇxᴛ ꜱᴇʟᴇᴄᴛɪᴏɴ:** `{tomorrow()}`\n\n"
-        "💗 **ᴛᴀɢ ʏᴏᴜʀ ᴄʀᴜꜱʜ — ʏᴏᴜ ᴍɪɢʜᴛ ʙᴇ ɴᴇxᴛ!** 😉"
+        " **ᴄᴏᴜᴘʟᴇ ᴏꜰ ᴛʜᴇ ᴅᴀʏ!** \n\n"
+        "╔════════════╗\n"
+        f" **ᴛᴏᴅᴀʏ'ꜱ ᴄᴏᴜᴘʟᴇ:**\n⤷ {user1.mention}  {user2.mention}\n"
+        "╚════════════╝\n\n"
+        f" **ɴᴇxᴛ ꜱᴇʟᴇᴄᴛɪᴏɴ:** `{tomorrow()}`\n\n"
+        " **ᴛᴀɢ ʏᴏᴜʀ ᴄʀᴜꜱʜ — ʏᴏᴜ ᴍɪɢʜᴛ ʙᴇ ɴᴇxᴛ!** "
     )
 
     await message.reply_photo(img_path, caption=caption)

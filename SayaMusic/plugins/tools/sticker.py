@@ -36,18 +36,18 @@ async def show_ids(_, message):
 
 @app.on_message(filters.command("stdl") & filters.reply)
 async def download_sticker(client, message):
-    proc = await message.reply_text("➣ downloading…")
+    proc = await message.reply_text(" downloading…")
     st = message.reply_to_message.sticker
     with tempfile.TemporaryDirectory() as td:
         path = await message.reply_to_message.download(os.path.join(td, "st"))
         if st.is_animated:
-            await proc.edit("➣ sending .tgs…")
+            await proc.edit(" sending .tgs…")
             await client.send_document(message.chat.id, path, caption="here's your animated sticker!")
         elif st.is_video:
-            await proc.edit("➣ sending video…")
+            await proc.edit(" sending video…")
             await client.send_video(message.chat.id, path, supports_streaming=True, caption="here's your video sticker!")
         else:
-            await proc.edit("➣ converting to png…")
+            await proc.edit(" converting to png…")
             img = Image.open(path)
             out = f"{path}.png"
             img.save(out, "PNG")
@@ -57,7 +57,7 @@ async def download_sticker(client, message):
 
 @app.on_message(filters.command("packkang") & filters.reply)
 async def pack_clone(client, message):
-    proc = await message.reply_text("➣ cloning pack…")
+    proc = await message.reply_text(" cloning pack…")
     st = message.reply_to_message.sticker
     try:
         sset = await client.invoke(
@@ -69,7 +69,7 @@ async def pack_clone(client, message):
         short = f"pack_{uuid4().hex[:8]}_by_{BOT_USERNAME}"
         items = []
         for doc in sset.documents:
-            emoji = next((a.alt for a in doc.attributes if isinstance(a, raw.types.DocumentAttributeSticker)), "🤔")
+            emoji = next((a.alt for a in doc.attributes if isinstance(a, raw.types.DocumentAttributeSticker)), "")
             items.append(
                 raw.types.InputStickerSetItem(
                     document=raw.types.InputDocument(

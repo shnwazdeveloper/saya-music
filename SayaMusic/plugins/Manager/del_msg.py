@@ -176,17 +176,17 @@ async def deleteall_callback(client, callback: CallbackQuery):
     try:
         fast_ok = await _fast_clear_history(assistant, chat_id)
         if fast_ok:
-            await _safe_edit(callback, "✅ Cleared full chat history for everyone.")
+            await _safe_edit(callback, " Cleared full chat history for everyone.")
         else:
-            await _safe_edit(callback, "⚠️ Fast clear not permitted by Telegram. Falling back to high‑speed batch deletion…")
+            await _safe_edit(callback, " Fast clear not permitted by Telegram. Falling back to high‑speed batch deletion…")
             skip = {callback.message.id}
             deleted = await _fallback_batch_delete(assistant, chat_id, skip_ids=skip, concurrency=3, batch_size=100)
-            await _safe_edit(callback, f"✅ Deleted approximately {deleted} messages.")
+            await _safe_edit(callback, f" Deleted approximately {deleted} messages.")
     except ChatAdminRequired:
-        await _safe_edit(callback, "❌ Assistant lacks delete rights. Make me able to promote admins.")
+        await _safe_edit(callback, " Assistant lacks delete rights. Make me able to promote admins.")
     except Exception as e:
         log.error("Delete-all fatal error: %s", e)
-        await _safe_edit(callback, f"❌ Failed: {e}")
+        await _safe_edit(callback, f" Failed: {e}")
     finally:
         try:
             try:
