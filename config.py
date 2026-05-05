@@ -24,11 +24,11 @@ def _required_int(name: str) -> int:
 
 
 # ── Core bot config ────────────────────────────────────────────────────────────
-API_ID = int(getenv("API_ID", "33591348"))
-API_HASH = getenv("API_HASH", "d138b2ec1432ef7da497e8e3d451140b")
+API_ID = _required_int("API_ID")
+API_HASH = _required("API_HASH")
 BOT_TOKEN = _required("BOT_TOKEN")
 
-OWNER_ID = int(getenv("OWNER_ID", "5940554521"))
+OWNER_ID = _required_int("OWNER_ID")
 OWNER_USERNAME = getenv("OWNER_USERNAME", "kidzmc")
 BOT_USERNAME = getenv("BOT_USERNAME", "SexySayaBot")
 BOT_NAME = getenv("BOT_NAME", "Saya Music")
@@ -50,8 +50,8 @@ PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "30"))
 COOKIE_URL = getenv("COOKIE_URL", "https://pastebin.com/YfK14h8y")  # paste link (raw URL is auto-resolved)
 API_URL = getenv("API_URL", "https://pvtz.nexgenbots.xyz")
 VIDEO_API_URL = getenv("VIDEO_API_URL", "https://api.video.nexgenbots.xyz")
-API_KEY = getenv("API_KEY", "30DxNexGenBotsc6b677")
-DEEP_API = getenv("DEEP_API", "sk-7af66c8b58d74bf1ad470a8618a8d49f")
+API_KEY = getenv("API_KEY", "")
+DEEP_API = getenv("DEEP_API", "")
 
 # ── Git / updates ──────────────────────────────────────────────────────────────
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/shnwazdeveloper/saya-music")
@@ -70,8 +70,8 @@ AUTO_LEAVE_ASSISTANT_TIME = int(getenv("ASSISTANT_LEAVE_TIME", "3600"))
 DEBUG_IGNORE_LOG = True
 
 # ── Spotify (optional) ─────────────────────────────────────────────────────────
-SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "22b6125bfe224587b722d6815002db2b")
-SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "c9c63c6fbf2f467c8bc68624851e9773")
+SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "")
+SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "")
 
 # ── Session strings (optional) ─────────────────────────────────────────────────
 STRING1 = getenv("STRING_SESSION")

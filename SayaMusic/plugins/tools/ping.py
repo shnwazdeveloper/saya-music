@@ -3,7 +3,6 @@ from datetime import datetime
 
 from pyrogram import filters
 from pyrogram.types import Message
-from config import *
 from SayaMusic import app
 from SayaMusic.core.call import StreamController
 from SayaMusic.utils import bot_sys_stats
@@ -23,7 +22,7 @@ async def ping_com(client, message: Message, _):
     pytgping = await StreamController.ping()
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
-    await response.edit_text(
+    await response.edit_caption(
         _["ping_2"].format(resp, app.mention, UP, RAM, CPU, DISK, pytgping),
         reply_markup=supp_markup(_),
     )
