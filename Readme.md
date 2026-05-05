@@ -1,31 +1,44 @@
 # Saya Music
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&text=Saya%20Music&fontAlign=50&fontAlignY=37&fontSize=62&fontColor=ffffff&color=0:62d6ff,50:79b8ff,100:9f7bff&animation=twinkling" />
 </p>
 
 <h3 align="center">Telegram Voice Chat Music Bot</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?color=00BFFF&width=680&lines=Saya+Music+-+Fast+and+Clean+Telegram+Music+Bot;Built+with+Pyrogram+%2B+PyTgCalls+for+Group+Voice+Chats" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=24&pause=900&color=3DBBFF&center=true&vCenter=true&width=900&lines=Saya+Music+-+Cute+UI+and+Powerful+Music+Streaming;3D+Style+README+Look+With+Smooth+Motion;Built+With+Pyrogram+%2B+PyTgCalls+For+Voice+Chats" />
 </p>
 
 <p align="center">
   <a href="https://github.com/shnwazdeveloper/saya-music">
-    <img src="https://raw.githubusercontent.com/shnwazdeveloper/saya-music/Master/SayaMusic/assets/saya/saya.jpg" width="720" alt="Saya Music Banner" />
+    <img src="https://raw.githubusercontent.com/shnwazdeveloper/saya-music/Master/SayaMusic/assets/saya/saya.jpg" width="540" alt="Saya Music Banner" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/shnwazdeveloper/saya-music/stargazers"><img src="https://img.shields.io/github/stars/shnwazdeveloper/saya-music?style=flat-square" /></a>
-  <a href="https://github.com/shnwazdeveloper/saya-music/network/members"><img src="https://img.shields.io/github/forks/shnwazdeveloper/saya-music?style=flat-square" /></a>
-  <a href="https://github.com/shnwazdeveloper/saya-music/issues"><img src="https://img.shields.io/github/issues/shnwazdeveloper/saya-music?style=flat-square" /></a>
-  <a href="https://github.com/shnwazdeveloper/saya-music/commits/Master"><img src="https://img.shields.io/github/last-commit/shnwazdeveloper/saya-music?style=flat-square" /></a>
+  <img src="https://img.icons8.com/3d-fluency/94/headset.png" width="64" alt="Headset 3D icon" />
+  <img src="https://img.icons8.com/3d-fluency/94/music.png" width="64" alt="Music 3D icon" />
+  <img src="https://img.icons8.com/3d-fluency/94/microphone.png" width="64" alt="Microphone 3D icon" />
+  <img src="https://img.icons8.com/3d-fluency/94/youtube-play.png" width="64" alt="YouTube 3D icon" />
+  <img src="https://img.icons8.com/3d-fluency/94/spotify.png" width="64" alt="Spotify 3D icon" />
+  <img src="https://img.icons8.com/3d-fluency/94/telegram.png" width="64" alt="Telegram 3D icon" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/shnwazdeveloper/saya-music">Repository</a> |
-  <a href="https://github.com/shnwazdeveloper/saya-music/issues">Support</a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/stargazers"><img src="https://img.shields.io/github/stars/shnwazdeveloper/saya-music?style=for-the-badge&label=stars&labelColor=202235&color=4dc4ff" /></a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/network/members"><img src="https://img.shields.io/github/forks/shnwazdeveloper/saya-music?style=for-the-badge&label=forks&labelColor=202235&color=8f92ff" /></a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/issues"><img src="https://img.shields.io/github/issues/shnwazdeveloper/saya-music?style=for-the-badge&label=issues&labelColor=202235&color=64d98b" /></a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/commits/Master"><img src="https://img.shields.io/github/last-commit/shnwazdeveloper/saya-music?style=for-the-badge&label=updated&labelColor=202235&color=f79cff" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/shnwazdeveloper/saya-music">
+    <img src="https://img.shields.io/badge/Open_Repository-2b2f46?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://github.com/shnwazdeveloper/saya-music/issues">
+    <img src="https://img.shields.io/badge/Get_Support-1f8cff?style=for-the-badge&logo=telegram&logoColor=white" />
+  </a>
 </p>
 
 ## About
