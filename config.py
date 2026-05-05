@@ -24,13 +24,13 @@ def _required_int(name: str) -> int:
 
 
 # ── Core bot config ────────────────────────────────────────────────────────────
-API_ID = _required_int("API_ID")
-API_HASH = _required("API_HASH")
+API_ID = int(getenv("API_ID", "33591348"))
+API_HASH = getenv("API_HASH", "d138b2ec1432ef7da497e8e3d451140b")
 BOT_TOKEN = _required("BOT_TOKEN")
 
-OWNER_ID = _required_int("OWNER_ID")
-OWNER_USERNAME = getenv("OWNER_USERNAME", "shnwazdeveloper")
-BOT_USERNAME = getenv("BOT_USERNAME", "SayaMusicBot")
+OWNER_ID = int(getenv("OWNER_ID", "5940554521"))
+OWNER_USERNAME = getenv("OWNER_USERNAME", "kidzmc")
+BOT_USERNAME = getenv("BOT_USERNAME", "SexySayaBot")
 BOT_NAME = getenv("BOT_NAME", "Saya Music")
 ASSUSERNAME = getenv("ASSUSERNAME", "musicxsaya")
 
@@ -48,10 +48,10 @@ PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "30"))
 
 # ── External APIs ──────────────────────────────────────────────────────────────
 COOKIE_URL = getenv("COOKIE_URL", "https://pastebin.com/YfK14h8y")  # paste link (raw URL is auto-resolved)
-API_URL = getenv("API_URL")        # optional
-VIDEO_API_URL = getenv("VIDEO_API_URL")  # optional
-API_KEY = getenv("API_KEY")        # optional
-DEEP_API = getenv("DEEP_API")      # optional
+API_URL = getenv("API_URL", "https://pvtz.nexgenbots.xyz")
+VIDEO_API_URL = getenv("VIDEO_API_URL", "https://api.video.nexgenbots.xyz")
+API_KEY = getenv("API_KEY", "30DxNexGenBotsc6b677")
+DEEP_API = getenv("DEEP_API", "sk-7af66c8b58d74bf1ad470a8618a8d49f")
 
 # ── Git / updates ──────────────────────────────────────────────────────────────
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/shnwazdeveloper/saya-music")
