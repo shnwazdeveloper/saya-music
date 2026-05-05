@@ -83,9 +83,6 @@ STRING5 = getenv("STRING_SESSION5")
 # ── Media assets ───────────────────────────────────────────────────────────────
 START_VIDS = [
     "https://litter.catbox.moe/ge4ds72i538f45q2.mp4",
-    "https://telegra.ph/file/9b7e1b820c72a14d90be7.mp4",
-    "https://telegra.ph/file/72f349b1386d6d9374a38.mp4",
-    "https://telegra.ph/file/a4d90b0cb759b67d68644.mp4",
 ]
 STICKERS = [
     "CAACAgUAAx0Cd6nKUAACASBl_rnalOle6g7qS-ry-aZ1ZpVEnwACgg8AAizLEFfI5wfykoCR4h4E",
