@@ -10,17 +10,17 @@ def track_markup(_, videoid, user_id, channel, fplay):
     return [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],
+                text="Audio",
                 callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
-                text=_["P_B_2"],
+                text="Video",
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
+                text="Close",
                 callback_data=f"forceclose {videoid}|{user_id}"
             )
         ],
@@ -44,16 +44,16 @@ def generate_progress_bar(played_sec, duration_sec):
 
     bar_length = 8
     filled = int(round(bar_length * percentage / 70))
-    return "▰" * filled + "▱" * (bar_length - filled)
+    return "=" * filled + "-" * (bar_length - filled)
 
 
 def control_buttons(_, chat_id):
     return [[
-        InlineKeyboardButton(text="▷", callback_data=f"stream_admin Resume|{chat_id}"),
-        InlineKeyboardButton(text="II", callback_data=f"stream_admin Pause|{chat_id}"),
-        InlineKeyboardButton(text="↻", callback_data=f"stream_admin Replay|{chat_id}"),
-        InlineKeyboardButton(text="‣‣I", callback_data=f"stream_admin Skip|{chat_id}"),
-        InlineKeyboardButton(text="▢", callback_data=f"stream_admin Stop|{chat_id}"),
+        InlineKeyboardButton(text="Resume", callback_data=f"stream_admin Resume|{chat_id}"),
+        InlineKeyboardButton(text="Pause", callback_data=f"stream_admin Pause|{chat_id}"),
+        InlineKeyboardButton(text="Replay", callback_data=f"stream_admin Replay|{chat_id}"),
+        InlineKeyboardButton(text="Skip", callback_data=f"stream_admin Skip|{chat_id}"),
+        InlineKeyboardButton(text="Stop", callback_data=f"stream_admin Stop|{chat_id}"),
     ]]
 
 
@@ -68,29 +68,29 @@ def stream_markup_timer(_, chat_id, played, dur):
     return (
         [[InlineKeyboardButton(text=f"{played} {bar} {dur}", callback_data="GetTimer")]] +
         control_buttons(_, chat_id) +
-        [[InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")]]
+        [[InlineKeyboardButton(text="Close", callback_data="close")]]
     )
 
 
 def stream_markup(_, chat_id):
-    return control_buttons(_, chat_id) + [[InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")]]
+    return control_buttons(_, chat_id) + [[InlineKeyboardButton(text="Close", callback_data="close")]]
 
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],
+                text="Audio",
                 callback_data=f"SayaPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}"
             ),
             InlineKeyboardButton(
-                text=_["P_B_2"],
+                text="Video",
                 callback_data=f"SayaPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}"
             ),
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
+                text="Close",
                 callback_data=f"forceclose {videoid}|{user_id}"
             ),
         ],
@@ -102,13 +102,13 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     return [
         [
             InlineKeyboardButton(
-                text=_["P_B_3"],
+                text="Live Stream",
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
             )
         ],
         [
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
+                text="Close",
                 callback_data=f"forceclose {videoid}|{user_id}"
             )
         ],
@@ -120,25 +120,25 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
     return [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],
+                text="Audio",
                 callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
-                text=_["P_B_2"],
+                text="Video",
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="◁",
+                text="Prev",
                 callback_data=f"slider B|{query_type}|{short_query}|{user_id}|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
+                text="Close",
                 callback_data=f"forceclose {short_query}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="▷",
+                text="Next",
                 callback_data=f"slider F|{query_type}|{short_query}|{user_id}|{channel}|{fplay}",
             ),
         ],

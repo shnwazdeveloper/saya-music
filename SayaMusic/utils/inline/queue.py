@@ -14,11 +14,11 @@ def queue_markup(
     not_dur = [
         [
             InlineKeyboardButton(
-                text=_["QU_B_1"],
+                text="Queue List",
                 callback_data=f"GetQueued {CPLAY}|{videoid}",
             ),
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
+                text="Close",
                 callback_data="close",
             ),
         ]
@@ -26,17 +26,17 @@ def queue_markup(
     dur = [
         [
             InlineKeyboardButton(
-                text=_["QU_B_2"].format(played, dur),
+                text=f"{played} / {dur}",
                 callback_data="GetTimer",
             )
         ],
         [
             InlineKeyboardButton(
-                text=_["QU_B_1"],
+                text="Queue List",
                 callback_data=f"GetQueued {CPLAY}|{videoid}",
             ),
             InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
+                text="Close",
                 callback_data="close",
             ),
         ],
@@ -50,11 +50,11 @@ def queue_back_markup(_, CPLAY):
         [
             [
                 InlineKeyboardButton(
-                    text=_["BACK_BUTTON"],
+                    text="Back",
                     callback_data=f"queue_back_timer {CPLAY}",
                 ),
                 InlineKeyboardButton(
-                    text=_["CLOSE_BUTTON"],
+                    text="Close",
                     callback_data="close",
                 ),
             ]
@@ -66,11 +66,11 @@ def queue_back_markup(_, CPLAY):
 def aq_markup(_, chat_id):
     buttons = [
         [
-            InlineKeyboardButton(text="▷", callback_data=f"stream_admin Resume|{chat_id}"),
-            InlineKeyboardButton(text="II", callback_data=f"stream_admin Pause|{chat_id}"),
-            InlineKeyboardButton(text="‣‣I", callback_data=f"stream_admin Skip|{chat_id}"),
-            InlineKeyboardButton(text="▢", callback_data=f"stream_admin Stop|{chat_id}"),
+            InlineKeyboardButton(text="Resume", callback_data=f"stream_admin Resume|{chat_id}"),
+            InlineKeyboardButton(text="Pause", callback_data=f"stream_admin Pause|{chat_id}"),
+            InlineKeyboardButton(text="Skip", callback_data=f"stream_admin Skip|{chat_id}"),
+            InlineKeyboardButton(text="Stop", callback_data=f"stream_admin Stop|{chat_id}"),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        [InlineKeyboardButton(text="Close", callback_data="close")],
     ]
     return buttons

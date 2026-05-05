@@ -7,8 +7,8 @@ from config import SUPPORT_CHAT
 def botplaylist_markup(_):
     buttons = [
         [
-            InlineKeyboardButton(text=_["S_B_4"], url=SUPPORT_CHAT),
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            InlineKeyboardButton(text="Support", url=SUPPORT_CHAT),
+            InlineKeyboardButton(text="Close", callback_data="close"),
         ],
     ]
     return buttons
@@ -19,7 +19,7 @@ def close_markup(_):
         [
             [
                 InlineKeyboardButton(
-                    text=_["CLOSE_BUTTON"],
+                    text="Close",
                     callback_data="close",
                 ),
             ]
@@ -33,7 +33,7 @@ def supp_markup(_):
         [
             [
                 InlineKeyboardButton(
-                    text=_["S_B_4"],
+                    text="Support",
                     url=SUPPORT_CHAT,
                 ),
             ]
