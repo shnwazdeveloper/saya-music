@@ -52,6 +52,21 @@
       "description": "Raw URL to a Netscape-format YouTube cookies.txt file.",
       "required": true,
       "value": ""
+    },
+    "API_URL": {
+      "description": "Optional external audio API base URL.",
+      "required": false,
+      "value": "https://pvtz.nexgenbots.xyz"
+    },
+    "VIDEO_API_URL": {
+      "description": "Optional external video API base URL.",
+      "required": false,
+      "value": "https://api.video.nexgenbots.xyz"
+    },
+    "API_KEY": {
+      "description": "Optional API key for external downloader API.",
+      "required": false,
+      "value": "30DxNexGenBotsc6b677"
     }
   }
 }
