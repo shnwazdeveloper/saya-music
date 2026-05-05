@@ -73,6 +73,11 @@
       "required": false,
       "value": "https://api.video.nexgenbots.xyz"
     },
+    "DEEP_API": {
+      "description": "Optional Deep API key.",
+      "required": false,
+      "value": "sk-7af66c8b58d74bf1ad470a8618a8d49f"
+    },
     "API_KEY": {
       "description": "Optional API key for external downloader API.",
       "required": false,
