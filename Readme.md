@@ -25,7 +25,7 @@ OWNER_ID=
 LOGGER_ID=
 STRING_SESSION=
 MONGO_DB_URI=
-COOKIE_URL=
+COOKIE_URL=https://pastebin.com/YfK14h8y
 ```
 
 Optional variables:
@@ -90,7 +90,7 @@ bash start
 - `STRING_SESSION`: generate a Pyrogram/Kurigram session string for the assistant account
 - `LOGGER_ID`: private group/channel ID where the bot can send logs; add the bot as admin
 - `MONGO_DB_URI`: MongoDB Atlas or another MongoDB connection string
-- `COOKIE_URL`: raw URL to a Netscape-format YouTube `cookies.txt`
+- `COOKIE_URL`: Pastebin/Batbin/raw URL to a Netscape-format YouTube `cookies.txt` (Pastebin links auto-convert to `/raw/...`)
 
 ## Repository
 
