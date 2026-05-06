@@ -5,15 +5,33 @@ Telegram voice chat music bot for group playback with Pyrogram and PyTgCalls.
 Maintainer: [SHNWAZDEV](https://t.me/kidzmc)
 Demo Bot: [@SexySayaBot](https://t.me/SexySayaBot)
 
-## Description
+## About
 
-Saya Music is a Telegram voice chat music bot focused on stable playback, clean controls, and fast deployment.
+Saya Music Telegram music bot prepared for Railway deployment
 
 ## Topics
 
-`telegram-bot` `music-bot` `voice-chat` `pyrogram` `pytgcalls` `railway` `docker`
+`music` `api` `docker` `telegram` `music-bot` `telegrambots` `shnwazdev`
 
-## About
+## Resources
+
+- [Readme](README.md)
+
+## License
+
+- [MIT license](LICENSE)
+
+## Security policy
+
+- [Security policy](SECURITY.md)
+
+## Activity
+
+- Stars: ![GitHub Repo stars](https://img.shields.io/github/stars/shnwazdeveloper/saya-music?style=flat)
+- Watchers: ![GitHub watchers](https://img.shields.io/github/watchers/shnwazdeveloper/saya-music?style=flat)
+- Forks: ![GitHub forks](https://img.shields.io/github/forks/shnwazdeveloper/saya-music?style=flat)
+
+## Overview
 
 Saya Music supports audio and video playback in Telegram voice chats with queue controls, multi-source search, and admin tools.
 It is designed for smooth group listening with easy setup on VPS, Docker, and Railway.
@@ -108,7 +126,3 @@ cp sample.env .env
 docker build -t saya-music .
 docker run -d --name saya-music --env-file .env --restart unless-stopped saya-music
 ```
-
-## License
-
-MIT
