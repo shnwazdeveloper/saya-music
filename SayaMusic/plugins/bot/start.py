@@ -137,6 +137,7 @@ async def start_pm(client, message: Message, _):
         caption=random.choice(AYUV).format(
             message.from_user.mention, app.mention, UP, DISK, CPU, RAM, len(served_users), len(served_chats)
         ),
+        has_spoiler=True,
         reply_markup=InlineKeyboardMarkup(out),
     )
 
@@ -161,6 +162,7 @@ async def start_gp(client, message: Message, _):
         await message.reply_video(
             random.choice(START_VIDS),
             caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
+            has_spoiler=True,
             reply_markup=InlineKeyboardMarkup(out),
         )
     except:
@@ -206,6 +208,7 @@ async def welcome(client, message: Message):
                         message.chat.title,
                         app.mention,
                     ),
+                    has_spoiler=True,
                     reply_markup=InlineKeyboardMarkup(out),
                 )
                 await add_served_chat(message.chat.id)
