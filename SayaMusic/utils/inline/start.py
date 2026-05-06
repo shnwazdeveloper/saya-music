@@ -9,9 +9,22 @@ def start_panel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Add To Group", url=f"https://t.me/{app.username}?startgroup=true"
-            ),
+                text="Add Me To Your Group",
+                url=f"https://t.me/{app.username}?startgroup=true",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="Help",
+                url=f"https://t.me/{app.username}?start=help",
+            )
+        ],
+        [
+            InlineKeyboardButton(text="Support", url=config.SUPPORT_CHAT),
             InlineKeyboardButton(text="Channel", url=config.SUPPORT_CHANNEL),
+        ],
+        [
+            InlineKeyboardButton(text="Source", url=config.UPSTREAM_REPO),
         ],
     ]
     return buttons
@@ -21,16 +34,22 @@ def private_panel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Add To Group",
+                text="Add Me To Your Group",
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
         ],
         [
-            InlineKeyboardButton(text="Owner", user_id=config.OWNER_ID),
-            InlineKeyboardButton(text="Support", url=config.SUPPORT_CHAT),
+            InlineKeyboardButton(
+                text="Help",
+                url=f"https://t.me/{app.username}?start=help",
+            )
         ],
         [
-            InlineKeyboardButton(text="Commands", callback_data="open_help"),
+            InlineKeyboardButton(text="Support", url=config.SUPPORT_CHAT),
+            InlineKeyboardButton(text="Channel", url=config.SUPPORT_CHANNEL),
+        ],
+        [
+            InlineKeyboardButton(text="Source", url=config.UPSTREAM_REPO),
         ],
     ]
     return buttons
