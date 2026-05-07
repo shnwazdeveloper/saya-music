@@ -27,9 +27,9 @@ Saya Music Telegram music bot prepared for Railway deployment
 
 ## Activity
 
-- Stars: ![GitHub Repo stars](https://img.shields.io/github/stars/shnwazdeveloper/saya-music?style=flat)
-- Watchers: ![GitHub watchers](https://img.shields.io/github/watchers/shnwazdeveloper/saya-music?style=flat)
-- Forks: ![GitHub forks](https://img.shields.io/github/forks/shnwazdeveloper/saya-music?style=flat)
+- Stars: 3 stars
+- Watchers: 0 watching
+- Forks: 3 forks
 
 ## Overview
 
