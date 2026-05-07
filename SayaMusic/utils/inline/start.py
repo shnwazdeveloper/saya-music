@@ -16,7 +16,7 @@ def start_panel(_):
         [
             InlineKeyboardButton(
                 text="Help",
-                url=f"https://t.me/{app.username}?start=help",
+                callback_data="open_help",
             )
         ],
         [
@@ -41,7 +41,7 @@ def private_panel(_):
         [
             InlineKeyboardButton(
                 text="Help",
-                url=f"https://t.me/{app.username}?start=help",
+                callback_data="open_help",
             )
         ],
         [
