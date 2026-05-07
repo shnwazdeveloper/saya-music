@@ -7,11 +7,11 @@ Demo Bot: [@Yorinamusicbot]([https://t.me/SexySayaBot](https://t.me/Yorinamusicb
 
 ## About
 
-Saya Music Telegram music bot prepared for Railway deployment
+Saya Music is an advanced Telegram voice chat music bot with fast multi-source streaming, clean controls, and Railway-ready deployment.
 
 ## Topics
 
-`music` `api` `docker` `telegram` `music-bot` `telegrambots` `shnwazdev`
+`music` `api` `docker` `telegram` `music-bot` `telegrambots` `shnwazdev` `railway` `pyrogram` `pytgcalls` `voice-chat` `streaming` `ffmpeg` `yt-dlp`
 
 ## Resources
 
@@ -27,9 +27,9 @@ Saya Music Telegram music bot prepared for Railway deployment
 
 ## Activity
 
-- Stars: 3 stars
-- Watchers: 0 watching
-- Forks: 3 forks
+- Stars: ![GitHub Repo stars](https://img.shields.io/github/stars/shnwazdeveloper/saya-music?style=flat)
+- Watchers: ![GitHub watchers](https://img.shields.io/github/watchers/shnwazdeveloper/saya-music?style=flat)
+- Forks: ![GitHub forks](https://img.shields.io/github/forks/shnwazdeveloper/saya-music?style=flat)
 
 ## Overview
 
