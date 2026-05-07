@@ -9,7 +9,7 @@ def start_panel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Add Me To Your Group",
+                text="Add me to your group",
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
         ],
@@ -34,7 +34,7 @@ def private_panel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Add Me To Your Group",
+                text="Add me to your group",
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
         ],

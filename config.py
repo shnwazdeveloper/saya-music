@@ -108,8 +108,8 @@ DURATION_LIMIT = time_to_seconds(f"{DURATION_LIMIT_MIN}:00")
 # ───── Bot Introduction Messages ───── #
 AYU = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 AYUV = [
-    "\"Hi {0},\nI am {1}.\nFast Telegram voice chat music bot.\n\nUptime: {2}\nStorage: {3}\nCPU: {4}\nRAM: {5}\nUsers: {6}\nChats: {7}\n\nDeveloper: SHNWAZDEV (t.me/kidzmc)\"",
-    "\"Hello {0},\nWelcome to {1}.\nPlay music and video in voice chat.\n\nUptime: {2}\nStorage: {3}\nCPU: {4}\nRAM: {5}\nUsers: {6}\nChats: {7}\n\nDeveloper: SHNWAZDEV (t.me/kidzmc)\"",
+    "\"ʜᴇʟʟᴏ - {0},\n\n ɪᴛ'ꜱ ᴍᴇ !\n\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ◆ ꜱᴜᴘᴘᴏʀᴛɪɴɢ ᴘʟᴀᴛꜰᴏʀᴍꜱ : ʏᴏᴜᴛᴜʙᴇ, ꜱᴘᴏᴛɪꜰʏ,\n┠ ◆ ʀᴇꜱꜱᴏ, ᴀᴘᴘʟᴇᴍᴜꜱɪᴄ , ꜱᴏᴜɴᴅᴄʟᴏᴜᴅ ᴇᴛᴄ.\n┗━━━━━━━━━━━━━━━━━⧫\n┏━━━━━━━━━━━━━━━━━⧫\n┠  Uᴘᴛɪᴍᴇ : {2}\n┠  SᴇʀᴠᴇʀSᴛᴏʀᴀɢᴇ : {3}\n┠  CPU Lᴏᴀᴅ : {4}\n┠  RAM Cᴏɴsᴜᴘᴛɪᴏɴ : {5}\n┠  ᴜꜱᴇʀꜱ : {6}\n┠  ᴄʜᴀᴛꜱ : {7}\n┗━━━━━━━━━━━━━━━━━⧫\n\n ᴅᴇᴠᴇʟᴏᴩᴇʀ\"",
+    "\"ʜᴇʟʟᴏ - {0},\n\n ɪᴛ'ꜱ ᴍᴇ !\n\n┏━━━━━━━━━━━━━━━━━⧫\n┠ ◆ ꜱᴜᴘᴘᴏʀᴛɪɴɢ ᴘʟᴀᴛꜰᴏʀᴍꜱ : ʏᴏᴜᴛᴜʙᴇ, ꜱᴘᴏᴛɪꜰʏ,\n┠ ◆ ʀᴇꜱꜱᴏ, ᴀᴘᴘʟᴇᴍᴜꜱɪᴄ , ꜱᴏᴜɴᴅᴄʟᴏᴜᴅ ᴇᴛᴄ.\n┗━━━━━━━━━━━━━━━━━⧫\n┏━━━━━━━━━━━━━━━━━⧫\n┠  Uᴘᴛɪᴍᴇ : {2}\n┠  SᴇʀᴠᴇʀSᴛᴏʀᴀɢᴇ : {3}\n┠  CPU Lᴏᴀᴅ : {4}\n┠  RAM Cᴏɴsᴜᴘᴛɪᴏɴ : {5}\n┠  ᴜꜱᴇʀꜱ : {6}\n┠  ᴄʜᴀᴛꜱ : {7}\n┗━━━━━━━━━━━━━━━━━⧫\n\n ᴅᴇᴠᴇʟᴏᴩᴇʀ\"",
 ]
 
 # ── Runtime structures ─────────────────────────────────────────────────────────
